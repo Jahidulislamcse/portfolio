@@ -1,0 +1,4 @@
+[27-Mar-2026 04:30:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/kkacccom/jahid.dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/kkacccom/jahid.dev/config/services.php on line 18
