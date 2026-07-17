@@ -1,43 +1,151 @@
-<!-- resources/views/layouts/master.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pO6x0Q5Z0sXbdU8NdP8VcoE4cIVjFZpCjA7HeUQqjq95MZ0zZL+6k3q2v3K5xFj4/vK7t0ZYzZ5bK3KqXUnKvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <style type="text/tailwindcss">
-        :root { --primary-color: #1193d4; }
-        body { font-family: 'Inter', sans-serif; }
-        @layer utilities {
-            .bg-rpCreamLight { background-color: #fef6e4; }
-            .border-rpGrayMedium { border-color: #d1d5db; }
-            .bg-rpOrange { background-color: #f97316; }
-            .border-rpWhite { border-color: #ffffff; }
-        }
-    </style>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title', 'Jahidul Islam')</title>
-    <link rel="icon" href="{{ asset('upload/favicon.jpeg') }}" type="image/x-icon" />
-</head>
-<body class="bg-gray-50 text-gray-800">
-    @include('layouts.header')
+    
+    @php $settings = \App\Models\Setting::first(); @endphp
+    @if($settings && $settings->logo)
+        <link href="{{ asset('upload/' . $settings->logo) }}" rel="shortcut icon" type="image/x-icon" />
+    @else
+        <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png" />
+    @endif
 
-    <main class="flex-grow">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
+    
+    @yield('styles')
+  </head>
+
+  <body class="layout-dark-mood">
+    <!-- Preloader Start -->
+    <section>
+      <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+          <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+              <span data-text-preloader="J" class="letters-loading">J</span>
+              <span data-text-preloader="A" class="letters-loading">A</span>
+              <span data-text-preloader="H" class="letters-loading">H</span>
+              <span data-text-preloader="I" class="letters-loading">I</span>
+              <span data-text-preloader="D" class="letters-loading">D</span>
+            </div>
+          </div>
+          <div class="loader-section section-left"></div>
+          <div class="loader-section section-right"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Preloader End -->
+
+    <!-- Header Area Start -->
+    @include('layouts.header')
+    <!-- Header Area End -->
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
         @yield('content')
-    </main>
+
+        <!-- Footer Area Start -->
+        @include('layouts.footer')
+        <!-- Footer Area End -->
+      </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/8801612152443" target="_blank"
         class="fixed bottom-6 right-6 text-white rounded-full z-50 flex items-center justify-center"
-        title="Chat with me on WhatsApp">
+        title="Chat with me on WhatsApp"
+        style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
        <img src="{{ asset('backend/images/whatsapp.png') }}" 
          alt="WhatsApp" 
-         class="w-20 h-20 object-contain">
+         class="w-20 h-20 object-contain"
+         style="width: 80px; height: 80px;">
     </a>
-    @include('layouts.footer')
-</body>
+
+    <!-- Mobile Nav Sidebar Content Start -->
+    <div class="mobile-nav-wrapper">
+      <div class="mobile-nav-overlay mobile-nav-toggler"></div>
+      <div class="mobile-nav-content">
+        <a href="javascript:void(0);" class="mobile-nav-close mobile-nav-toggler">
+          <span></span>
+          <span></span>
+        </a>
+        <div class="side-panel-logo logo-box">
+          <a href="{{ route('home') }}">
+            @if($settings && $settings->logo)
+                <img src="{{ asset('upload/' . $settings->logo) }}" alt="logo" style="max-height: 70px; border-radius: 50%;" />
+            @else
+                <img src="{{ asset('images/logo-light.png') }}" alt="logo" />
+            @endif
+          </a>
+        </div>
+        <div class="mobile-nav-container"></div>
+        <ul class="list-items mobile-sidebar-contact">
+          @if($settings && $settings->address)
+            <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"></span>{{ $settings->address }}</li>
+          @endif
+          @if($settings && $settings->contact_mail)
+            <li><span class="fas fa-envelope mrr-10 text-primary-color"></span><a href="mailto:{{ $settings->contact_mail }}">{{ $settings->contact_mail }}</a></li>
+          @endif
+          @if($settings && $settings->phone_number)
+            <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a href="tel:{{ $settings->phone_number }}">{{ $settings->phone_number }}</a></li>
+          @endif
+        </ul>
+        <ul class="social-list list-primary-color">
+          @if($settings && $settings->facebook)
+            <li><a href="{{ $settings->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          @endif
+          @if($settings && $settings->linkedin)
+            <li><a href="{{ $settings->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+          @endif
+        </ul>
+      </div>
+    </div>
+    <!-- Mobile Nav Sidebar Content End -->
+
+    <!-- Back to Top Start -->
+    <div class="anim-scroll-to-top">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+      </svg>
+    </div>
+    <!-- Back to Top end -->
+
+    <!-- Integrated important scripts here -->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/swiper.min.js') }}"></script>
+    <!-- Counter Up Animation Start -->
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <!-- Counter Up Animation End -->
+    <script src="{{ asset('js/jquery.event.move.js') }}"></script>
+    <!-- Gsap Animation Start -->
+    <script src="{{ asset('js/gsap-plugins.js') }}"></script>
+    <script src="{{ asset('js/gsap-trigger.js') }}"></script>
+    <script src="{{ asset('js/title-animations.js') }}"></script>
+    <!-- Gsap Animation End -->
+    <!-- Parallax Start -->
+    <script src="{{ asset('js/ukiyo.min.js') }}"></script>
+    <!-- Parallax End -->
+    <!-- Image Distortion Effect Start -->
+    <script src="{{ asset('js/three.js') }}"></script>
+    <script src="{{ asset('js/hover-effect.umd.js') }}"></script>
+    <!-- Image Distortion Effect End -->
+    <script src="{{ asset('js/tilt.jquery.min.js') }}"></script>
+    <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/backtotop.js') }}"></script>
+    <script src="{{ asset('js/trigger.js') }}"></script>
+    
+    @yield('scripts')
+  </body>
 </html>

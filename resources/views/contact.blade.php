@@ -1,154 +1,178 @@
- @extends('layouts.master')
+@extends('layouts.master')
 
- @section('title', 'Contact | Jahidul Islam')
+@section('title', 'Contact | ' . ($settings->company ?? 'Jahidul Islam'))
 
- @section('content')
+@section('content')
 
-     <main class="flex-1">
-         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                 <!-- Left Side -->
-                 <div class="flex flex-col gap-8">
-                     <div>
-                         <h2 class="text-3xl md:text-4xl font-extrabold text-amber-500 drop-shadow-lg">
-                             Contact Me
-                         </h2>
-                         <p class="mt-4 text-lg text-gray-600">
-                             I am here to help. Reach out to me with any questions or inquiries.
-                         </p>
-                     </div>
+<!-- Page Title Start -->
+<section class="page-title-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="breadcrumb-area">
+          <h2 class="page-title">Contact Me</h2>
+          <ul class="breadcrumbs-link">
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li class="active">Contact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page Title End -->
 
-                     <!-- Contact Form -->
-                     <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
-                         @csrf
+<!-- Contact Section Start -->
+<section class="contact-section bg-no-repeat bg-cover pdt-110 pdb-110 bg-black" data-background="{{ asset('images/bg/home1-bg1.png') }}">
+  <div class="container">
+    <div class="row mrb-80">
+      <div class="col-xl-12">
+        <div class="row">
+          @if($settings && $settings->address)
+            <div class="col-lg-6 col-xl-4">
+              <div class="contact_info_02 d-flex mrb-30" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 25px 20px; border-radius: 12px; height: 100%;">
+                <div class="contact-icon" style="color: #1193d4; font-size: 2.2rem; line-height: 1;">
+                  <i class="webexbase-icon-pin-1"></i>
+                </div>
+                <div class="contact-details mrl-20">
+                  <h5 class="icon-box-title mrb-10 text-white" style="font-size: 1.15rem; font-weight: bold;">Address</h5>
+                  <p class="mrb-0 text-white-50" style="font-size: 0.95rem;">{{ $settings->address }}</p>
+                </div>
+              </div>
+            </div>
+          @endif
+          @if($settings && $settings->contact_mail)
+            <div class="col-lg-6 col-xl-4">
+              <div class="contact_info_02 d-flex mrb-30" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 25px 20px; border-radius: 12px; height: 100%;">
+                <div class="contact-icon" style="color: #1193d4; font-size: 2.2rem; line-height: 1;">
+                  <i class="webexbase-icon-145-envelope"></i>
+                </div>
+                <div class="contact-details mrl-20">
+                  <h5 class="icon-box-title mrb-10 text-white" style="font-size: 1.15rem; font-weight: bold;">Email Us</h5>
+                  <p class="mrb-0 text-white-50" style="font-size: 0.95rem;"><a href="mailto:{{ $settings->contact_mail }}" style="color: inherit;">{{ $settings->contact_mail }}</a></p>
+                </div>
+              </div>
+            </div>
+          @endif
+          @if($settings && $settings->phone_number)
+            <div class="col-lg-6 col-xl-4">
+              <div class="contact_info_02 d-flex mrb-30" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 25px 20px; border-radius: 12px; height: 100%;">
+                <div class="contact-icon" style="color: #1193d4; font-size: 2.2rem; line-height: 1;">
+                  <i class="webexbase-icon-call"></i>
+                </div>
+                <div class="contact-details mrl-20">
+                  <h5 class="icon-box-title mrb-10 text-white" style="font-size: 1.15rem; font-weight: bold;">Phone Number</h5>
+                  <p class="mrb-0 text-white-50" style="font-size: 0.95rem;"><a href="tel:{{ $settings->phone_number }}" style="color: inherit;">{{ $settings->phone_number }}</a></p>
+                </div>
+              </div>
+            </div>
+          @endif
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xl-5">
+        <div class="title-box anim-heading animation-style1">
+          <h5 class="sub-title">( Get In Touch )</h5>
+          <h2 class="title faq-title mrb-30 anim-title text-white">Have Any Questions?</h2>
+        </div>
+        <ul class="social-list list-lg list-primary-color mrb-lg-60 clearfix" style="display: flex; gap: 15px; list-style: none; padding: 0;">
+          @if($settings && $settings->facebook)
+            <li><a href="{{ $settings->facebook }}" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: white;"><i class="fab fa-facebook-f"></i></a></li>
+          @endif
+          @if($settings && $settings->linkedin)
+            <li><a href="{{ $settings->linkedin }}" target="_blank" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: white;"><i class="fab fa-linkedin-in"></i></a></li>
+          @endif
+        </ul>
+      </div>
+      <div class="col-xl-7">
+        <div class="contact-form">
+          <form method="POST" action="{{ route('contact.store') }}">
+            @csrf
+            
+            @if(session('success'))
+                <div id="success-message" class="alert alert-success mrb-25" style="border-radius: 8px;">
+                    {{ session('success') }}
+                </div>
+                <script>
+                    setTimeout(function() {
+                        const msg = document.getElementById('success-message');
+                        if(msg) {
+                            msg.style.transition = "opacity 0.5s";
+                            msg.style.opacity = "0";
+                            setTimeout(() => msg.remove(), 500);
+                        }
+                    }, 3000);
+                </script>
+            @endif
 
-                         <div>
-                             <input type="text" name="name" id="name" placeholder="Your Name" autocomplete="name"
-                                 class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm
-                                focus:border-[#1193d4] focus:ring-[#1193d4] sm:text-sm"
-                                 value="{{ old('name') }}" />
-                             @error('name')
-                                 <span class="text-red-500 text-sm">{{ $message }}</span>
-                             @enderror
-                         </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group mrb-25">
+                  <input type="text" name="name" placeholder="Name" class="form-control quote-input" required value="{{ old('name') }}" />
+                  @error('name') <span class="text-danger small">{{ $message }}</span> @enderror
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group mrb-25">
+                  <input type="email" name="email" placeholder="Email" class="form-control quote-input" required value="{{ old('email') }}" />
+                  @error('email') <span class="text-danger small">{{ $message }}</span> @enderror
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group mrb-25">
+                  <textarea rows="5" name="message" placeholder="Message" class="form-control quote-input" required>{{ old('message') }}</textarea>
+                  @error('message') <span class="text-danger small">{{ $message }}</span> @enderror
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <button type="submit" class="cs-btn-one btn-circle" style="background: #1193d4; color: white; border: none; padding: 12px 35px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">Submit Now</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section End -->
 
-                         <div>
-                             <input type="email" name="email" id="email" placeholder="Your Email"
-                                 autocomplete="email"
-                                 class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm
-                                focus:border-[#1193d4] focus:ring-[#1193d4] sm:text-sm"
-                                 value="{{ old('email') }}" />
-                             @error('email')
-                                 <span class="text-red-500 text-sm">{{ $message }}</span>
-                             @enderror
-                         </div>
+<!-- Google Map Section Start -->
+<div class="map-section pos-rel bg-black" style="border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: -10px;">
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <div class="col-12 p-0">
+        <iframe src="{{ $settings->google_map ?? 'https://maps.google.com' }}"
+          class="w-full" height="480" style="border:0; width: 100%; filter: grayscale(100%) invert(92%) contrast(1.1);"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Google Map Section End -->
 
-                         <div>
-                             <textarea name="message" id="message" placeholder="Your Message" rows="4"
-                                 class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm
-                                focus:border-[#1193d4] focus:ring-[#1193d4] sm:text-sm">{{ old('message') }}</textarea>
-                             @error('message')
-                                 <span class="text-red-500 text-sm">{{ $message }}</span>
-                             @enderror
-                         </div>
+@endsection
 
-                         <div>
-                             <button type="submit"
-                                 class="flex w-full justify-center rounded-md border border-transparent bg-[#1193d4]
-                                px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-sky-600
-                                focus:outline-none focus:ring-2 focus:ring-[#1193d4] focus:ring-offset-2
-                                transition-colors duration-200">
-                                 Send Message
-                             </button>
-                         </div>
-
-                         @if (session('success'))
-                             <div id="success-message"
-                                 class="mb-6 p-4 text-green-800 bg-green-100 border border-green-200 rounded-lg">
-                                 {{ session('success') }}
-                             </div>
-                             <script>
-                                 setTimeout(function() {
-                                     const msg = document.getElementById('success-message');
-                                     if (msg) {
-                                         msg.style.transition = "opacity 0.5s";
-                                         msg.style.opacity = "0";
-                                         setTimeout(() => msg.remove(), 500);
-                                     }
-                                 }, 3000);
-                             </script>
-                         @endif
-                     </form>
-                 </div>
-
-                 <!-- Right Side -->
-                 <div class="space-y-8">
-                     <!-- Google Map -->
-                     <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                         <iframe src="{{ $settings->google_map ?? 'https://maps.google.com' }}"
-                             class="w-full h-full object-cover" height="450" width="600" style="border:0;"
-                             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-
-                     <!-- Office Info -->
-                     <div class="bg-white p-8 rounded-lg shadow-lg">
-                         <h2 class="text-2xl font-bold text-amber-500 drop-shadow-lg">
-                             Current Address
-                         </h2>
-                         <div class="mt-6 space-y-4">
-                             @if (optional($settings)->address)
-                                 <div class="flex items-start">
-                                     <span class="material-symbols-outlined text-[#1193d4]"> location_on </span>
-                                     <div class="ml-3">
-                                         <p class="text-base text-gray-700">Address</p>
-                                         <p class="text-base text-gray-500">{{ $settings->address }}</p>
-                                     </div>
-                                 </div>
-                             @endif
-
-                             @if (optional($settings)->phone_number)
-                                 <div class="flex items-start">
-                                     <span class="material-symbols-outlined text-[#1193d4]"> call </span>
-                                     <div class="ml-3">
-                                         <p class="text-base text-gray-700">Phone</p>
-                                         <p class="text-base text-gray-500">{{ $settings->phone_number }}</p>
-                                     </div>
-                                 </div>
-                             @endif
-
-                             @if (optional($settings)->contact_mail)
-                                 <div class="flex items-start">
-                                     <span class="material-symbols-outlined text-[#1193d4]"> mail </span>
-                                     <div class="ml-3">
-                                         <p class="text-base text-gray-700">Email</p>
-                                         <p class="text-base text-gray-500">{{ $settings->contact_mail }}</p>
-                                     </div>
-                                 </div>
-                             @endif
-                             <div class="mt-8 border-t border-gray-200 pt-8">
-                                 <div class=" flex space-x-6">
-                                     @if (optional($settings)->facebook)
-                                         <a href="{{ $settings->facebook }}" class="text-gray-400 hover:text-gray-500"
-                                             target="_blank">
-                                             <span class="sr-only">Facebook</span>
-                                             <i class="fab fa-facebook text-4xl"></i>
-                                         </a>
-                                     @endif
-
-                                     @if (optional($settings)->linkedin)
-                                         <a href="{{ $settings->linkedin }}" class="text-gray-400 hover:text-gray-500"
-                                             target="_blank">
-                                             <span class="sr-only">linkedin</span>
-                                             <i class="fab fa-linkedin text-4xl"></i>
-                                         </a>
-                                     @endif
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-     </main>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
- @endsection
+@section('styles')
+<style>
+  .quote-input {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    font-size: 0.95rem !important;
+    transition: border-color 0.3s !important;
+  }
+  .quote-input:focus {
+    border-color: #1193d4 !important;
+    box-shadow: 0 0 10px rgba(17, 147, 212, 0.2) !important;
+  }
+  .contact-form button:hover {
+    background: #0d7cb3 !important;
+  }
+</style>
+@endsection

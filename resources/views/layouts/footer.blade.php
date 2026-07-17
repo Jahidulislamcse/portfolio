@@ -1,67 +1,55 @@
-<footer class="bg-gray-800 text-white">
-    <div class="container mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="text-[var(--primary-color)]">
-                        @php
-                            $settings = \App\Models\Setting::first();
-                        @endphp
-
-                        @if ($settings && $settings->logo)
-                            <img src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" height="50" width="50"
-                                class="rounded-full object-cover border-2 border-gray-300 shadow-md">
-                        @else
-                            <svg class="feather feather-shield" fill="none" height="32" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                width="32" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                        @endif
-
-                    </div>
-                    <h1 class="text-xl font-bold text-white tracking-tight">
-                        @if ($settings && $settings->company)
-                            {{ $settings->company }}
-                        @else
-                            Company Name
-                        @endif
-                    </h1>
-                </div>
+<footer class="footer bg-cover bg-black pos-rel" data-background="{{ asset('images/bg/footer-blur-bg2.png') }}">
+  <div class="footer-main-area">
+    <div class="container">
+      <div class="row justify-content-between pdb-80">
+        <div class="col-xl-9 col-lg-9 col-md-12 anim-heading animation-style1">
+          <h2 class="footer_big_text anim-title">Like What You See? Let’s Get Started!</h2>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 d-flex justify-content-center justify-content-lg-end">
+          <div class="xotech_btn_block circle_hover_btn">
+            <div class="circle_btn_item">
+              <a href="{{ route('contact') }}" class="circle-btn-style1">Hire Me <i class="circle-btn-arrow webexbase-icon-black-arrow-1"></i> <br />For Freelance </a>
+              <span class="circle_btn_dot"></span>
             </div>
-
-            <div>
-                <h3 class="text-lg font-semibold mb-4">More</h3>
-                <ul class="space-y-2">
-                    <li><a class="text-gray-400 hover:text-white transition-colors duration-300"
-                            href="{{ route('contact') }}">Contact Me</a></li>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="pdt-30 pdb-30 footer-border-top-bottom">
+            <div class="row">
+              <div class="col-xl-8 col-lg-8 col-md-8">
+                <ul class="h1_footer_01_social">
+                  @php $settings = \App\Models\Setting::first(); @endphp
+                  @if($settings && $settings->facebook)
+                    <li><a href="{{ $settings->facebook }}" target="_blank">Facebook</a></li>
+                  @endif
+                  @if($settings && $settings->linkedin)
+                    <li><a href="{{ $settings->linkedin }}" target="_blank">LinkedIn</a></li>
+                  @endif
                 </ul>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 text-center text-md-end">
+                @if($settings && $settings->contact_mail)
+                  <span><a href="mailto:{{ $settings->contact_mail }}" style="color: inherit;">{{ $settings->contact_mail }}</a></span>
+                @else
+                  <span>Info@gmail.com</span>
+                @endif
+              </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Find Me On</h3>
-                <div class="flex space-x-6">
-                    @if (optional($settings)->facebook)
-                        <a href="{{ $settings->facebook }}" class="text-gray-400 hover:text-white" target="_blank">
-                            <span class="sr-only">Facebook</span>
-                            <i class="fab fa-facebook text-3xl"></i>
-                        </a>
-                    @endif
-
-                    @if (optional($settings)->linkedin)
-                        <a href="{{ $settings->linkedin }}" class="text-gray-400 hover:text-white" target="_blank">
-                            <span class="sr-only">LinkedIn</span>
-                            <i class="fab fa-linkedin text-3xl"></i>
-                        </a>
-                    @endif
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
-            <div class="copyright">
-                Copyright © 2025 Developed & Maintained By
-                <a  target="_blank" rel="noopener noreferrer">Jahidul Islam
-                    (jahidcse181@gmail.com)</a>
-            </div>
+      </div>
+      <div class="row pdt-30 pdb-30 footer-copyright-area">
+        <div class="col"></div>
+        <div class="col-xl-6 col-lg-6">
+          <div class="text-center">
+            <span>Copyright by <strong>{{ $settings->company ?? 'Jahidul Islam' }}</strong> © 2026. All rights reserved </span>
+          </div>
         </div>
+        <div class="col"></div>
+      </div>
     </div>
+  </div>
+  <img class="h1_footer_oval_shape" src="{{ asset('images/footer/oval.png') }}" alt="" />
 </footer>

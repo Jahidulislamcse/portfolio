@@ -1,31 +1,69 @@
 @foreach($categories as $category)
     @if($category->products->count())
-        <div class="mb-12 px-2">
-            <h2 class="text-2xl font-bold text-blu mb-6">{{ $category->name }}</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach($category->products as $product)
-                    <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl group relative">
-                        <div class="relative flex-shrink-0">
-                            @if($product->cover_image)
-                                <img alt="{{ $product->name }}" class="h-48 w-full object-cover" src="{{ asset('upload/' . $product->cover_image) }}">
-                            @elseif($product->images->first())
-                                <img alt="{{ $product->name }}" class="h-48 w-full object-cover" src="{{ asset('upload/' . $product->images->first()->image) }}">
-                            @else
-                                <img alt="{{ $product->name }}" class="h-48 w-full object-cover" src="https://via.placeholder.com/400x200?text=No+Image">
-                            @endif
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/25">
-                                <a href="{{ route('products.show', $product->slug) }}" class="px-6 py-2 border border-white text-white font-medium rounded-md transition-transform duration-200 transform hover:scale-105">
-                                    View Detail
-                                </a>
+        <div class="mb-80">
+            <h2 class="text-white mrb-55" style="font-size: 2.25rem; font-weight: bold; border-left: 4px solid #1193d4; padding-left: 15px;">{{ $category->name }}</h2>
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                    @php $leftIndex = 0; @endphp
+                    @foreach($category->products as $index => $product)
+                        @if($index % 2 == 0)
+                            <div class="project_style1_item" style="margin-bottom: 50px; {{ $leftIndex > 0 ? 'margin-top: 50px;' : '' }}">
+                                <div class="project_thumb scale-img">
+                                    @if($product->cover_image)
+                                        <img class="img-full" src="{{ asset('upload/' . $product->cover_image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @elseif($product->images->first())
+                                        <img class="img-full" src="{{ asset('upload/' . $product->images->first()->image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @else
+                                        <img class="img-full" src="https://via.placeholder.com/400x200?text=No+Image" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @endif
+                                </div>
+                                <div class="project_content">
+                                    <div class="project_title_area">
+                                        <div class="project_category">
+                                            <ul>
+                                                <li><a href="javascript:void(0);">{{ $category->name }}</a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="title"><a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h4>
+                                    </div>
+                                    <a class="project_link" href="{{ route('products.show', $product->slug) }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex-1 p-4 flex flex-col justify-between">
-                            <h3 class="mt-2 text-xl font-semibold text-gray-900">{{ Str::limit($product->name, 40) }}</h3>
-                        </div>
-                    </div>
-                @endforeach
+                            @php $leftIndex++; @endphp
+                        @endif
+                    @endforeach
+                </div>
+                <!-- Right Column -->
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                    @foreach($category->products as $index => $product)
+                        @if($index % 2 != 0)
+                            <div class="project_style1_item" style="margin-bottom: 50px; margin-top: 100px;">
+                                <div class="project_thumb scale-img">
+                                    @if($product->cover_image)
+                                        <img class="img-full" src="{{ asset('upload/' . $product->cover_image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @elseif($product->images->first())
+                                        <img class="img-full" src="{{ asset('upload/' . $product->images->first()->image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @else
+                                        <img class="img-full" src="https://via.placeholder.com/400x200?text=No+Image" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
+                                    @endif
+                                </div>
+                                <div class="project_content">
+                                    <div class="project_title_area">
+                                        <div class="project_category">
+                                            <ul>
+                                                <li><a href="javascript:void(0);">{{ $category->name }}</a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="title"><a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h4>
+                                    </div>
+                                    <a class="project_link" href="{{ route('products.show', $product->slug) }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
     @endif
 @endforeach
-

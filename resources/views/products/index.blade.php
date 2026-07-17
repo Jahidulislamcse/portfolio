@@ -1,80 +1,88 @@
 @extends('layouts.master')
 
-@section('title', 'Products | Jahidul Islam')
+@section('title', 'Projects | ' . ($settings->company ?? 'Jahidul Islam'))
 
 @section('content')
 
-<div class="max-w-7xl mx-auto card-container">
-    <div class="text-center mb-8">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-amber-500 mb-12 text-center drop-shadow-lg">
-            My Creation
-        </h2>
+<!-- Page Title Start -->
+<section class="page-title-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="breadcrumb-area">
+          <h2 class="page-title">My Creations</h2>
+          <ul class="breadcrumbs-link">
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li class="active">Projects</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+<!-- Page Title End -->
 
-    <div class="flex flex-wrap justify-start gap-4 mb-10 px-2">
-        <button class="category-tab {{ !$selectedCategory ? 'active' : '' }}" data-category="all">
-            <span class="inline-flex items-center gap-2">
-                All
-            </span>
-        </button>
-
-        @foreach ($allCategories as $cat)
-            <button class="category-tab {{ $selectedCategory == $cat->slug ? 'active' : '' }}"
-                data-category="{{ $cat->slug }}">
-                <span class="inline-flex items-center gap-2">
-                    @if ($cat->image)
-                        <img src="{{ asset('upload/' . $cat->image) }}" alt="{{ $cat->name }}"
-                            class="w-6 h-6 rounded-full object-cover">
-                    @endif
-                    {{ $cat->name }}
-                </span>
-            </button>
-        @endforeach
+<!-- Project Section Start -->
+<section class="project_section_area pdt-120 pdb-120 bg-black">
+  <div class="container">
+    <div class="row mrb-55 align-items-center">
+      <div class="col-xl-6 col-lg-6 col-md-12">
+        <div class="title-box">
+          <h5 class="sub-title">( Portfolio )</h5>
+          <h2 class="title text-white">All Masterpieces & Apps</h2>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-start justify-content-lg-end">
+        <div class="flex flex-wrap justify-start gap-4" id="filters-container">
+          <button class="category-tab active" data-category="all">All</button>
+          @foreach ($allCategories as $cat)
+            <button class="category-tab" data-category="{{ $cat->slug }}">{{ $cat->name }}</button>
+          @endforeach
+        </div>
+      </div>
     </div>
-
-    <div id="productGrid">
-        @include('products.partials.products-grid', ['categories' => $categories])
+    
+    <div class="section-content" id="productGrid">
+      @include('products.partials.products-grid', ['categories' => $categories])
     </div>
-</div>
+  </div>
+</section>
+<!-- Project Section End -->
 
-<div id="quotationChip" class="fixed top-2/3 left-0 transform -translate-y-1/2 bg-amber-500 text-white px-3 py-2 rounded-r-2xl cursor-pointer z-50 hover:bg-sky-600 transition-colors">
+<!-- Quotation Slide-in Panel & Floating Chip -->
+<div id="quotationChip" class="fixed-quote-chip" title="Request a Quotation">
     Make <br> Quote
 </div>
 
-<div id="quotationPanel" class="fixed top-20 left-0 h-full w-96 bg-white shadow-lg transform -translate-x-full transition-transform z-40 overflow-y-auto">
-    <div class="p-6 relative">
-        <h2 class="text-2xl font-bold mb-4">Request a Quotation</h2>
-        <form action="{{ route('contact.store') }}" method="POST" class="space-y-4">
+<div id="quotationPanel" class="fixed-quote-panel">
+    <div class="quote-panel-header">
+        <h3 class="text-white">Request a Quotation</h3>
+        <button id="closeQuotePanel" class="quote-close-btn">&times;</button>
+    </div>
+    <div class="quote-panel-body">
+        <form action="{{ route('contact.store') }}" method="POST">
             @csrf
-            <div>
-                <input type="text" name="name" placeholder="Your Name"
-                       class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm"
-                       value="{{ old('name') }}" />
-                @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            <div class="form-group mrb-20">
+                <input type="text" name="name" placeholder="Your Name" class="form-control quote-input" required value="{{ old('name') }}" />
+                @error('name') <span class="text-danger small">{{ $message }}</span> @enderror
             </div>
 
-            <div>
-                <input type="email" name="email" placeholder="Your Email"
-                       class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm"
-                       value="{{ old('email') }}" />
-                @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            <div class="form-group mrb-20">
+                <input type="email" name="email" placeholder="Your Email" class="form-control quote-input" required value="{{ old('email') }}" />
+                @error('email') <span class="text-danger small">{{ $message }}</span> @enderror
             </div>
 
-            <div>
-                <textarea name="message" placeholder="Your Message" rows="4"
-                          class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm">{{ old('message') }}</textarea>
-                @error('message') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            <div class="form-group mrb-25">
+                <textarea name="message" placeholder="Your Message" rows="5" class="form-control quote-input" required>{{ old('message') }}</textarea>
+                @error('message') <span class="text-danger small">{{ $message }}</span> @enderror
             </div>
 
-            <div>
-                <button type="submit"
-                        class="w-full bg-[var(--primary-color)] text-white px-6 py-3 rounded-md hover:bg-sky-600 transition-colors duration-200">
-                    Send Message
-                </button>
+            <div class="form-group">
+                <button type="submit" class="quote-submit-btn">Send Message</button>
             </div>
 
             @if(session('success'))
-                <div id="success-message" class="mt-4 p-4 text-green-800 bg-green-100 border border-green-200 rounded-lg">
+                <div id="success-message" class="alert alert-success mt-4">
                     {{ session('success') }}
                 </div>
                 <script>
@@ -92,71 +100,178 @@
     </div>
 </div>
 
+@endsection
+
+@section('styles')
 <style>
-    .card-container {
-        margin-top: 50px;
-        margin-bottom: 80px;
-    }
-    .category-tab {
-        padding: 6px 20px 0 20px;
-        border-radius: 9999px;
-        border: 2px solid #1193d4;
-        background: white;
-        color: #1193d4;
-        font-weight: 600;
-        transition: all 0.2s ease-in-out;
-    }
-    .category-tab:hover,
-    .category-tab.active {
-        background: #1193d4;
-        color: white;
-    }
-    .text-blu{
-        color: #1193D4;
-    }
+  .category-tab {
+    padding: 8px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 5px;
+  }
+  .category-tab:hover,
+  .category-tab.active {
+    background: #1193d4;
+    border-color: #1193d4;
+    color: white;
+    box-shadow: 0 4px 15px rgba(17, 147, 212, 0.3);
+  }
+
+  /* Quotation Panel Styles */
+  .fixed-quote-chip {
+    position: fixed;
+    top: 60%;
+    left: 0;
+    background: #1193d4;
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    line-height: 1.2;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .fixed-quote-chip:hover {
+    background: #0d7cb3;
+    transform: scale(1.05);
+  }
+  
+  .fixed-quote-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 380px;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+  .fixed-quote-panel.open {
+    transform: translateX(0);
+  }
+  
+  .quote-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .quote-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .quote-close-btn:hover {
+    opacity: 1;
+  }
+  
+  .quote-panel-body {
+    padding: 30px 24px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .quote-input {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    font-size: 0.95rem !important;
+    transition: border-color 0.3s !important;
+  }
+  .quote-input:focus {
+    border-color: #1193d4 !important;
+    box-shadow: 0 0 10px rgba(17, 147, 212, 0.2) !important;
+  }
+  
+  .quote-submit-btn {
+    width: 100%;
+    background: #1193d4;
+    color: white;
+    font-weight: 600;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .quote-submit-btn:hover {
+    background: #0d7cb3;
+  }
 </style>
+@endsection
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+@section('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.category-tab');
-    const productGrid = document.getElementById('productGrid');
+    document.addEventListener('DOMContentLoaded', () => {
+        // AJAX Category Filtering
+        const tabs = document.querySelectorAll('.category-tab');
+        const productGrid = document.getElementById('productGrid');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
 
-            const category = tab.dataset.category;
+                const category = tab.dataset.category;
 
-            fetch(`{{ route('products.user') }}?category=${category}`, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                })
-                .then(res => res.json())
-                .then(data => {
-                    productGrid.innerHTML = data.html;
-                })
-                .catch(err => console.error(err));
+                fetch(`{{ route('products.user') }}?category=${category}`, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        productGrid.innerHTML = data.html;
+                        if(typeof WOW !== 'undefined') {
+                            new WOW().init();
+                        }
+                    })
+                    .catch(err => console.error(err));
+            });
+        });
+
+        // Quotation Panel slide toggle
+        const chip = document.getElementById('quotationChip');
+        const panel = document.getElementById('quotationPanel');
+        const closeBtn = document.getElementById('closeQuotePanel');
+
+        chip.addEventListener('click', () => {
+            panel.classList.add('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            panel.classList.remove('open');
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && panel.classList.contains('open')) {
+                panel.classList.remove('open');
+            }
         });
     });
-
-    // Quotation Panel toggle
-    const chip = document.getElementById('quotationChip');
-    const panel = document.getElementById('quotationPanel');
-
-    chip.addEventListener('click', () => {
-        if(panel.classList.contains('-translate-x-full')){
-            panel.classList.remove('-translate-x-full');
-            panel.classList.add('translate-x-0');
-        } else {
-            panel.classList.add('-translate-x-full');
-            panel.classList.remove('translate-x-0');
-        }
-    });
-});
 </script>
-
 @endsection
