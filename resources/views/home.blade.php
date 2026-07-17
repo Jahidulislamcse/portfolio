@@ -32,9 +32,9 @@
         <div class="col-xl-5">
           <div class="banner-thumb">
             @if($settings && $settings->logo)
-              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" style="height: 480px; width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin: 0 auto; object-fit: cover; object-position: center top;" />
+              <img class="banner-profile-img" src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" />
             @else
-              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" style="height: 480px; width: 100%; border-radius: 24px; object-fit: cover; object-position: center top;" />
+              <img class="banner-profile-img" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" />
             @endif
             <div class="story-box wow fadeInUp">
               <div class="quote-icon"><i class="webexbase-icon-group-88301"></i></div>
@@ -287,16 +287,7 @@
     }
   }
 
-  /* Position overrides to prevent overlaps and squeezing */
-  .home_banner_01 .banner-item .banner-info {
-    margin-left: 0px !important; /* Move text block left to make space */
-  }
-  .home_banner_01 .banner-item .banner-thumb .story-box {
-    bottom: -60px !important; /* Push experience quote down */
-    padding: 20px 25px !important; /* Make card smaller */
-  }
-  
-  /* Align star icon cleanly with long banner title */
+  /* Star icon emoji sizing and alignment */
   .h1-banner-emoji {
     display: inline-block !important;
     vertical-align: middle !important;
@@ -306,6 +297,92 @@
     max-height: 45px !important;
     width: auto !important;
     vertical-align: middle !important;
+  }
+
+  /* Profile image styling */
+  .banner-profile-img {
+    height: 380px !important;
+    width: 100% !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Desktop layout overrides for modern compact card */
+  @media (min-width: 992px) {
+    .home_banner_01 .banner-item .banner-info {
+      margin-left: 0px !important; /* Move text block left to make space */
+    }
+    .home_banner_01 .banner-item .banner-thumb {
+      max-width: 340px !important;
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      margin-top: -190px !important; /* Move up slightly on desktop */
+      position: relative !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .story-box {
+      position: absolute !important;
+      width: 110% !important;
+      left: -5% !important;
+      right: -5% !important;
+      bottom: -45px !important;
+      padding: 16px 20px !important;
+      border-radius: 16px !important;
+      background: #ffffff !important;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+      display: flex !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .h1-obj2 {
+      position: absolute !important;
+      left: auto !important;
+      right: -45px !important;
+      top: 180px !important;
+    }
+  }
+
+  /* Mobile and Tablet layout overrides */
+  @media (max-width: 991px) {
+    .home_banner_01 .banner-item .banner-info {
+      margin-left: 0px !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb {
+      position: relative !important;
+      margin-top: 60px !important;
+      margin-bottom: 60px !important;
+      bottom: auto !important;
+      right: auto !important;
+      left: auto !important;
+      width: 100% !important;
+      max-width: 320px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .story-box {
+      position: relative !important;
+      bottom: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100% !important;
+      margin-top: 30px !important;
+      padding: 16px 20px !important;
+      border-radius: 16px !important;
+      background: #ffffff !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+      display: flex !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .h1-obj2 {
+      position: absolute !important;
+      left: auto !important;
+      right: -20px !important;
+      top: 140px !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
+      height: 340px !important;
+    }
   }
 </style>
 @endsection

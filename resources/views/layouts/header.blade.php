@@ -10,10 +10,41 @@
             <img src="{{ asset('images/logo-light.png') }}" width="165" height="72" alt="logo" />
           @endif
           @if($settings && $settings->company)
-            <span style="font-size: 1.25rem; font-weight: bold; color: #fff; margin-left: 10px; vertical-align: middle;">{{ $settings->company }}</span>
+            <span class="header-logo-text">{{ $settings->company }}</span>
           @endif
         </a>
       </div>
+
+<style>
+  .header-logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-left: 10px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 991px) {
+    .header-logo-text {
+      font-size: 1.0rem;
+    }
+  }
+  @media (max-width: 767px) {
+    .header-logo-text {
+      font-size: 0.85rem;
+      max-width: 180px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  @media (max-width: 480px) {
+    .header-logo-text {
+      max-width: 140px;
+    }
+  }
+</style>
       <ul class="main-nav-menu">
         <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
           <a href="{{ route('home') }}">Home</a>
