@@ -26,6 +26,8 @@
         border: none !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
         border-radius: 50% !important;
+        bottom: 120px !important; /* Push it higher so it doesn't overlap the WhatsApp button */
+        right: 40px !important; /* Align it cleanly above the WhatsApp button */
       }
       .anim-scroll-to-top::after {
         color: #ffffff !important; /* White arrow pointer */
