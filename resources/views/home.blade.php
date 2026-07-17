@@ -15,7 +15,7 @@
           </h1>
         </div>
         <div class="col-xl-12 anim-heading animation-style1">
-          <h2 class="h1-banner-title text-white f-weight-400 d-none d-xl-block d-lg-block d-md-block mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Web Application Developer' }}</h2>
+          <h1 class="h1-banner-title text-white f-weight-400 mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Professional Web Application Developer' }}</h1>
         </div>
         <div class="col-xl-7">
           <div class="banner-info">
@@ -312,6 +312,12 @@
     margin: 0 auto !important;
   }
 
+  /* Reduce gap below the main hero headings */
+  .home_banner_01 .banner-item .h1-banner-text {
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+  }
+
   /* Desktop layout overrides for modern compact card */
   @media (min-width: 992px) {
     .home_banner_01 .banner-item .banner-info {
@@ -343,14 +349,14 @@
       position: absolute !important;
       left: auto !important;
       right: -45px !important;
-      top: 200px !important; /* Lock years of experience circular badge */
+      top: 220px !important; /* Lock years of experience circular badge */
     }
   }
 
   /* Mobile and Tablet layout overrides */
   @media (max-width: 991px) {
     .home_banner_01 {
-      padding-top: 100px !important; /* Reduce padding top on mobile view */
+      padding-top: 130px !important; /* Increase gap on top for mobile view */
       padding-bottom: 40px !important; /* Reduce padding bottom on mobile view */
     }
     .home_banner_01 .banner-item .banner-info {
@@ -364,7 +370,7 @@
       right: auto !important;
       left: auto !important;
       width: 100% !important;
-      max-width: 320px !important;
+      max-width: 240px !important; /* Decrease my photo width on mobile view */
       margin-left: auto !important;
       margin-right: auto !important;
     }
@@ -383,12 +389,24 @@
     }
     .home_banner_01 .banner-item .banner-thumb .h1-obj2 {
       position: absolute !important;
+      width: 90px !important; /* Scale down badge size on mobile */
+      height: 90px !important;
       left: auto !important;
-      right: -20px !important;
-      top: 140px !important;
+      right: -15px !important; /* Adjust coordinates to align with smaller photo card */
+      top: 90px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .h1-obj2 span:first-child {
+      font-size: 7px !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .h1-obj2 span:last-child {
+      font-size: 22px !important;
     }
     .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
-      height: 340px !important;
+      height: 260px !important; /* Decrease my photo height on mobile view */
     }
   }
 </style>
