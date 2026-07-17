@@ -15,7 +15,7 @@
           </h1>
         </div>
         <div class="col-xl-12 anim-heading animation-style1">
-          <h1 class="h1-banner-title text-white f-weight-400 mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Professional Web Application Developer' }}</h1>
+          <h1 class="h1-banner-title text-white f-weight-400 mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Web Application Developer' }}</h1>
         </div>
         <div class="col-xl-7">
           <div class="banner-info">
@@ -354,6 +354,10 @@
   @media (min-width: 992px) {
     .home_banner_01 .banner-item .banner-info {
       margin-left: 0px !important; /* Move text block left to make space */
+    }
+    .home_banner_01 .banner-item .h1-banner-text {
+      margin-top: 35px !important; /* Apply margin top on desktop view */
+      margin-bottom: 30px !important;
     }
     .home_banner_01 .banner-item .banner-thumb {
       max-width: 280px !important;
