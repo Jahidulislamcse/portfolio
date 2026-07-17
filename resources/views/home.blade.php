@@ -320,6 +320,11 @@
     vertical-align: middle !important;
   }
 
+  /* Prevent cutting off the quote card at the bottom of the banner */
+  .home_banner_01 {
+    overflow: visible !important;
+  }
+
   /* Profile image styling */
   .banner-profile-img {
     height: 380px !important;
