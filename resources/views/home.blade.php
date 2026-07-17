@@ -98,7 +98,7 @@
 <!-- About & Mission Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-120 pdt-120 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+<section class="pdb-120 pdt-60 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60">
     <div class="container">
       <div class="row">
