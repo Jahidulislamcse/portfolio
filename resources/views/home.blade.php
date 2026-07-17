@@ -356,7 +356,7 @@
       margin-left: 0px !important; /* Move text block left to make space */
     }
     .home_banner_01 .banner-item .h1-banner-text {
-      margin-top: 35px !important; /* Apply margin top on desktop view */
+      margin-top: 60px !important; /* Apply margin top on desktop view */
       margin-bottom: 30px !important;
     }
     .home_banner_01 .banner-item .banner-thumb {
