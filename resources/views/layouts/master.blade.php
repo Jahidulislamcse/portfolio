@@ -19,6 +19,25 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
     
     @yield('styles')
+    <style>
+      .anim-scroll-to-top {
+        z-index: 99999 !important; /* Make sure it stays on top of all wrapper content layers */
+        background: #1193d4 !important; /* Premium blue accent background */
+        border: none !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+        border-radius: 50% !important;
+      }
+      .anim-scroll-to-top::after {
+        color: #ffffff !important; /* White arrow pointer */
+        font-size: 16px !important;
+        line-height: 46px !important;
+        height: 46px !important;
+        width: 46px !important;
+      }
+      .anim-scroll-to-top svg.progress-circle path {
+        stroke: #ffffff !important; /* Clean white progress circle indicator */
+      }
+    </style>
   </head>
 
   <body class="layout-dark-mood">
@@ -173,6 +192,21 @@
     <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
     <script src="{{ asset('js/backtotop.js') }}"></script>
     <script src="{{ asset('js/trigger.js') }}"></script>
+    
+    <script>
+      jQuery(document).ready(function($) {
+        // Intercept back-to-top clicks to work with GSAP ScrollSmoother
+        $(document).on("click", ".anim-scroll-to-top", function(e) {
+          e.preventDefault();
+          if (typeof ScrollSmoother !== 'undefined' && ScrollSmoother.get()) {
+            ScrollSmoother.get().scrollTo(0, true);
+          } else {
+            $("html, body").animate({ scrollTop: 0 }, 500);
+          }
+          return false;
+        });
+      });
+    </script>
     
     @yield('scripts')
   </body>
