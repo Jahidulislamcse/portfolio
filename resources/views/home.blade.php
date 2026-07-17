@@ -351,21 +351,21 @@
       margin-left: 0px !important; /* Move text block left to make space */
     }
     .home_banner_01 .banner-item .banner-thumb {
-      max-width: 340px !important;
+      max-width: 280px !important;
       margin-left: auto !important;
       margin-right: 0 !important;
       margin-top: -190px !important; /* Move up slightly on desktop */
       position: relative !important;
     }
     .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
-      height: 440px !important; /* Make image taller on desktop to avoid covering the face */
+      height: 360px !important; /* Make image shorter on desktop to fit reduced size */
     }
     .home_banner_01 .banner-item .banner-thumb .story-box {
       position: absolute !important;
-      width: 110% !important;
-      left: -5% !important;
-      right: -5% !important;
-      bottom: -65px !important; /* Push card lower to avoid covering the face */
+      width: 120% !important;
+      left: -10% !important;
+      right: -10% !important;
+      bottom: -55px !important; /* Push card lower to avoid covering the face */
       padding: 16px 20px !important;
       border-radius: 16px !important;
       background: #ffffff !important;
@@ -375,8 +375,8 @@
     .home_banner_01 .banner-item .banner-thumb .h1-obj2 {
       position: absolute !important;
       left: auto !important;
-      right: -45px !important;
-      top: 220px !important; /* Lock years of experience circular badge */
+      right: -30px !important;
+      top: 170px !important; /* Adjust badge height for the shorter card */
     }
   }
 

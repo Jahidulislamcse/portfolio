@@ -465,8 +465,11 @@
     $items.first().addClass('active');
   }
   $items.click(function () {
+    var wasActive = $(this).hasClass('active');
     $items.removeClass('active');
-    $(this).addClass('active');
+    if (!wasActive) {
+      $(this).addClass('active');
+    }
   });
 
 
