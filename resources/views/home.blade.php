@@ -343,7 +343,7 @@
       position: absolute !important;
       left: auto !important;
       right: -45px !important;
-      top: 220px !important; /* Lock years of experience circular badge */
+      top: 200px !important; /* Lock years of experience circular badge */
     }
   }
 
