@@ -31,7 +31,11 @@
         </div>
         <div class="col-xl-5">
           <div class="banner-thumb">
-            <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" />
+            @if($settings && $settings->logo)
+              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" style="max-height: 380px; width: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 0 auto; object-fit: cover;" />
+            @else
+              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" />
+            @endif
             <div class="story-box wow fadeInUp">
               <div class="quote-icon"><i class="webexbase-icon-group-88301"></i></div>
               <div class="story-description">
@@ -207,11 +211,11 @@
             <div class="swiper-wrapper">
               @foreach ($brands as $brand)
                 <div class="swiper-slide flex justify-center items-center brand-slide" style="display: flex; align-items: center; justify-content: center;">
-                  <div style="display: flex; align-items: center; justify-content: center; height: 90px; width: 180px; padding: 15px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <div style="display: flex; align-items: center; justify-content: center; height: 90px; width: 180px; padding: 15px; background: #ffffff; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
                     @if ($brand->image)
-                      <img src="{{ asset('upload/' . $brand->image) }}" alt="{{ $brand->name }}" style="max-height: 60px; max-width: 140px; object-fit: contain; filter: grayscale(100%) brightness(0.8) contrast(1.2); transition: all 0.3s ease;">
+                      <img src="{{ asset('upload/' . $brand->image) }}" alt="{{ $brand->name }}" style="max-height: 60px; max-width: 140px; object-fit: contain; transition: all 0.3s ease;">
                     @else
-                      <span class="text-white" style="opacity: 0.5; font-size: 0.95rem; font-weight: 600;">{{ $brand->name }}</span>
+                      <span class="text-dark" style="font-size: 0.95rem; font-weight: 600; color: #111;">{{ $brand->name }}</span>
                     @endif
                   </div>
                 </div>
@@ -248,8 +252,36 @@
     color: white;
     box-shadow: 0 4px 15px rgba(17, 147, 212, 0.3);
   }
-  .brand-slide img:hover {
-    filter: none !important;
+  
+  /* Custom Font Size and Styling Adjustments */
+  .h1-banner-title {
+    font-size: 50px !important;
+    line-height: 1.15 !important;
+  }
+  @media (max-width: 991px) {
+    .h1-banner-title {
+      font-size: 38px !important;
+    }
+  }
+  @media (max-width: 767px) {
+    .h1-banner-title {
+      font-size: 30px !important;
+    }
+  }
+  
+  .service_title {
+    font-size: 28px !important;
+  }
+  .service_content_right h3 {
+    font-size: 22px !important;
+  }
+  @media (max-width: 767px) {
+    .service_title {
+      font-size: 20px !important;
+    }
+    .service_content_right h3 {
+      font-size: 18px !important;
+    }
   }
 </style>
 @endsection
