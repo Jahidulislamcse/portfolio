@@ -130,9 +130,9 @@
             <div class="service_content">
               <div class="service_content_left">
                 @if ($service->image)
-                  <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
+                  <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" class="service-round-img" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);" />
                 @else
-                  <img src="{{ asset('images/service/h1-s1-img1.jpg') }}" alt="default service" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
+                  <img src="{{ asset('images/service/h1-s1-img1.jpg') }}" alt="default service" class="service-round-img" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);" />
                 @endif
               </div>
               <div class="service_content_right">
@@ -271,6 +271,10 @@
     }
   }
   
+  .services_list_style1 .service_item .service_content {
+    align-items: center !important;
+  }
+  
   .service_title {
     font-size: 28px !important;
   }
@@ -299,9 +303,10 @@
     }
     .services_list_style1 .service_item .service_content .service_content_left img {
       height: 90px !important;
-      width: 130px !important;
+      width: 90px !important;
       object-fit: cover !important;
-      border-radius: 8px !important;
+      border-radius: 50% !important;
+      border: 2px solid rgba(255,255,255,0.1) !important;
     }
     .services_list_style1 .service_item .service_content .service_content_right {
       width: 100% !important;
