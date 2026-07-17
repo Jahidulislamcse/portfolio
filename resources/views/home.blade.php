@@ -324,12 +324,15 @@
       margin-top: -190px !important; /* Move up slightly on desktop */
       position: relative !important;
     }
+    .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
+      height: 440px !important; /* Make image taller on desktop to avoid covering the face */
+    }
     .home_banner_01 .banner-item .banner-thumb .story-box {
       position: absolute !important;
       width: 110% !important;
       left: -5% !important;
       right: -5% !important;
-      bottom: -45px !important;
+      bottom: -65px !important; /* Push card lower to avoid covering the face */
       padding: 16px 20px !important;
       border-radius: 16px !important;
       background: #ffffff !important;
@@ -340,19 +343,23 @@
       position: absolute !important;
       left: auto !important;
       right: -45px !important;
-      top: 180px !important;
+      top: 220px !important; /* Lock years of experience circular badge */
     }
   }
 
   /* Mobile and Tablet layout overrides */
   @media (max-width: 991px) {
+    .home_banner_01 {
+      padding-top: 100px !important; /* Reduce padding top on mobile view */
+      padding-bottom: 40px !important; /* Reduce padding bottom on mobile view */
+    }
     .home_banner_01 .banner-item .banner-info {
       margin-left: 0px !important;
     }
     .home_banner_01 .banner-item .banner-thumb {
       position: relative !important;
-      margin-top: 60px !important;
-      margin-bottom: 60px !important;
+      margin-top: 40px !important;
+      margin-bottom: 45px !important;
       bottom: auto !important;
       right: auto !important;
       left: auto !important;
@@ -367,7 +374,7 @@
       left: auto !important;
       right: auto !important;
       width: 100% !important;
-      margin-top: 30px !important;
+      margin-top: 25px !important; /* Reduce top padding spacing */
       padding: 16px 20px !important;
       border-radius: 16px !important;
       background: #ffffff !important;
