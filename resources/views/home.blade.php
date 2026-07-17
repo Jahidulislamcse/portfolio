@@ -67,7 +67,7 @@
 <!-- Home Banner End -->
 
 <!-- About & Mission Section Start -->
-<section class="pdt-120 pdb-120 bg-black">
+<section class="pdt-120 pdb-40 bg-black">
   <div class="container">
     <div class="row">
       <div class="col-xl-6 col-lg-6 mrb-lg-50 wow fadeInLeft about-col-left">
@@ -98,7 +98,7 @@
 <!-- About & Mission Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-120 pdt-60 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+<section class="pdb-120 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60">
     <div class="container">
       <div class="row">
