@@ -15,7 +15,7 @@
           </h1>
         </div>
         <div class="col-xl-12 anim-heading animation-style1">
-          <h2 class="h1-banner-title text-white f-weight-400 d-none d-xl-block d-lg-block d-md-block mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Professional Web Application Developer' }}</h2>
+          <h2 class="h1-banner-title text-white f-weight-400 d-none d-xl-block d-lg-block d-md-block mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Web Application Developer' }}</h2>
         </div>
         <div class="col-xl-7">
           <div class="banner-info">
