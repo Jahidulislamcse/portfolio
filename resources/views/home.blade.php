@@ -11,7 +11,7 @@
       <div class="row align-items-center">
         <div class="col-xl-12 anim-heading animation-style1">
           <h1 class="h1-banner-title text-white f-weight-400 mrb-sm-20 wow fadeInLeft">
-            <span class="h1-banner-emoji mrr-20"><img src="{{ asset('images/objects/h1-banner-art1.png') }}" alt="emoji" /></span>I’m {{ $settings->company ?? 'Jahidul Islam' }}
+            <span class="h1-banner-emoji mrr-20"><img src="{{ asset('images/objects/h1-banner-art1.png') }}" alt="emoji" /></span>I’m {{ 'Jahidul Islam' }}
           </h1>
         </div>
         <div class="col-xl-12 anim-heading animation-style1">
