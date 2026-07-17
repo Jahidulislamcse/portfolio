@@ -107,7 +107,7 @@
         <div class="side-panel-logo logo-box">
           <a href="{{ route('home') }}">
             @if($settings && $settings->logo)
-                <img src="{{ asset('upload/' . $settings->logo) }}" alt="logo" style="max-height: 70px; border-radius: 50%;" />
+                <img src="{{ asset('upload/' . $settings->logo) }}" alt="logo" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);" />
             @else
                 <img src="{{ asset('images/logo-light.png') }}" alt="logo" />
             @endif

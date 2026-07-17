@@ -40,7 +40,6 @@
               <div class="quote-icon"><i class="webexbase-icon-group-88301"></i></div>
               <div class="story-description">
                 <h4 class="title">"Stories live in every line of code"</h4>
-                <span class="name">{{ $settings->company ?? 'Jahidul Islam' }}</span>
               </div>
             </div>
             <div class="h1-obj1 wow fadeInRight"><img src="{{ asset('images/objects/h1-banner-art2.png') }}" alt="art" /></div>
