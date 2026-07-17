@@ -279,10 +279,32 @@
   }
   @media (max-width: 767px) {
     .service_title {
-      font-size: 20px !important;
+      font-size: 17px !important;
     }
     .service_content_right h3 {
-      font-size: 18px !important;
+      font-size: 16px !important;
+    }
+    
+    /* Apply mini service images on mobile view */
+    .services_list_style1 .service_item .service_content {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 15px !important;
+      padding: 20px 15px !important;
+    }
+    .services_list_style1 .service_item .service_content .service_content_left {
+      display: block !important;
+      max-width: 130px !important;
+      margin: 0 !important;
+    }
+    .services_list_style1 .service_item .service_content .service_content_left img {
+      height: 90px !important;
+      width: 130px !important;
+      object-fit: cover !important;
+      border-radius: 8px !important;
+    }
+    .services_list_style1 .service_item .service_content .service_content_right {
+      width: 100% !important;
     }
   }
 
@@ -315,6 +337,12 @@
   .home_banner_01 .banner-item .h1-banner-text {
     margin-top: 15px !important;
     margin-bottom: 25px !important;
+  }
+
+  /* Reduce font size for the quote title globally */
+  .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
+    font-size: 20px !important;
+    line-height: 28px !important;
   }
 
   /* Desktop layout overrides for modern compact card */
@@ -406,10 +434,6 @@
     }
     .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
       height: 260px !important; /* Decrease my photo height on mobile view */
-    }
-    .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
-      font-size: 20px !important; /* Reduce font size on mobile view */
-      line-height: 28px !important;
     }
   }
 </style>

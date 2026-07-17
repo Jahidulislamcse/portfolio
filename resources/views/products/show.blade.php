@@ -1,161 +1,115 @@
 @extends('layouts.master')
 
-@section('title', $product->name)
+@section('title', $product->name . ' | ' . ($settings->company ?? 'Jahidul Islam'))
 
 @section('content')
 
-    <a href="{{ route('products.user') }}"
-        class="absolute top-0 left-0 mt-4 ml-4 inline-flex items-center px-4 py-2 border border-[var(--primary-color)] text-[var(--primary-color)] font-medium rounded-md hover:bg-[var(--primary-color)] hover:text-white transition-colors duration-200">
-        Go Back
-    </a>
-    <div class="max-w-5xl mx-auto mt-12 px-4 py-5 my-10 relative">
-        @if (session('success'))
-            <div id="success-message" class="mb-6 p-4 text-green-800 bg-green-100 border border-green-200 rounded-lg">
-                {{ session('success') }}
-            </div>
-            <script>
-                setTimeout(function() {
-                    const msg = document.getElementById('success-message');
-                    if (msg) {
-                        msg.style.transition = "opacity 0.5s";
-                        msg.style.opacity = "0";
-                        setTimeout(() => msg.remove(), 500);
-                    }
-                }, 3000);
-            </script>
+<!-- Page Title Start -->
+<section class="page-title-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="breadcrumb-area">
+          <h2 class="page-title">{{ $product->name }}</h2>
+          <ul class="breadcrumbs-link">
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('products.user') }}">Projects</a></li>
+            <li class="active">Details</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page Title End -->
+
+<!-- Project Details Section Start -->
+<section class="project-details-page bg-black pdt-110 pdb-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="project-thumb mrb-40" style="position: relative; overflow: hidden; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
+          <img id="mainImage" class="img-full border-radius-10px" src="{{ asset('upload/' . ($product->cover_image ?? ($product->images->first()->image ?? ''))) }}" alt="{{ $product->name }}" style="max-height: 550px; width: 100%; object-fit: cover; transition: transform 0.3s ease;" />
+        </div>
+        
+        @if ($product->images->count())
+          <div class="flex flex-wrap gap-3 mrb-40" style="display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;">
+            @foreach ($product->images as $img)
+              <img src="{{ asset('upload/' . $img->image) }}" class="thumbnail" data-full="{{ asset('upload/' . $img->image) }}" style="width: 90px; height: 90px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid rgba(255,255,255,0.05); transition: border-color 0.3s ease;">
+            @endforeach
+          </div>
         @endif
-
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div class="flex-1">
-                <div class="mb-4 relative">
-                    <img id="mainImage"
-                        src="{{ asset('upload/' . ($product->cover_image ?? ($product->images->first()->image ?? ''))) }}"
-                        alt="{{ $product->name }}" class="w-full rounded shadow-md object-cover"
-                        style="width: 600px; cursor: zoom-in;">
-                </div>
-
-                @if ($product->images->count())
-                    <div class="flex gap-2 flex-wrap">
-                        @foreach ($product->images as $img)
-                            <img src="{{ asset('upload/' . $img->image) }}"
-                                class="w-20 h-20 object-cover rounded cursor-pointer thumbnail"
-                                data-full="{{ asset('upload/' . $img->image) }}">
-                        @endforeach
-                    </div>
-                @endif
-            </div>
-
-            <div class="flex-1">
-                <h1 class="text-3xl font-bold mb-4">{{ $product->name }}</h1>
-                <p class="text-sm text-[var(--primary-color)] mb-2">{{ $product->category->name ?? 'Uncategorized' }}</p>
-                <div class="text-gray-700 mb-4">{!! $product->description !!}</div>
-
-                <button id="openQuotationModal"
-                    class="px-6 py-3 bg-amber-500 text-white rounded-md font-medium hover:bg-sky-600 transition-colors duration-200">
-                    Request Quotation
-                </button>
-            </div>
-        </div>
+      </div>
     </div>
-
-    <div id="quotationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-        <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
-            <button id="closeQuotationModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-                &times;
-            </button>
-            <h2 class="text-2xl font-bold mb-4">Request a Quotation</h2>
-
-            <form action="{{ route('contact.store') }}" method="POST" class="space-y-4">
-                @csrf
-                <div>
-                    <input type="text" name="name" id="name" placeholder="Your Name" autocomplete="name"
-                        class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm"
-                        value="{{ old('name') }}" />
-                    @error('name')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div>
-                    <input type="email" name="email" id="email" placeholder="Your Email" autocomplete="email"
-                        class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm"
-                        value="{{ old('email') }}" />
-                    @error('email')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div>
-                    <textarea name="message" id="message" placeholder="Your Message" rows="4"
-                        class="block w-full rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm">{{ old('message') }}</textarea>
-                    @error('message')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div>
-                    <button type="submit"
-                        class="w-full bg-[var(--primary-color)] text-white px-6 py-3 rounded-md hover:bg-sky-600 transition-colors duration-200">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+    
+    <div class="row mrb-45">
+      <div class="col-xl-8 col-lg-8 col-md-12">
+        <div class="project-detail-text mrb-30">
+          <h3 class="text-white mrb-20" style="font-size: 2rem;">About Project</h3>
+          <div class="text-white-50" style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8;">
+            {!! $product->description !!}
+          </div>
         </div>
+      </div>
+      
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="project-info" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 35px 30px; border-radius: 16px;">
+          <div class="project-info-title mrb-25">
+            <h5 class="title text-white" style="font-size: 1.3rem; font-weight: bold; border-left: 3px solid #1193d4; padding-left: 12px;">Project Information</h5>
+          </div>
+          <div class="project-info-body">
+            <div class="project-info-list d-flex align-items-center mrb-20" style="display: flex; align-items: center; margin-bottom: 20px;">
+              <div class="project-info-icon" style="color: #1193d4; font-size: 1.8rem; line-height: 1; width: 40px;">
+                <i class="webexbase-icon-categories1"></i>
+              </div>
+              <div class="info-details mrl-15" style="margin-left: 15px;">
+                <span class="text-white-50 small d-block" style="font-size: 0.85rem; opacity: 0.6; display: block;">Category:</span>
+                <h5 class="name text-white m-0" style="font-size: 1.05rem; font-weight: 600; margin: 0;">{{ $product->category->name ?? 'Uncategorized' }}</h5>
+              </div>
+            </div>
+            
+            <div class="portivio-btn-block mrt-30" style="margin-top: 30px;">
+              <a href="https://wa.me/8801612152443?text=Hi%20Jahidul,%20I'm%20interested%20in%20your%20project:%20{{ urlencode($product->name) }}" target="_blank" class="cs-btn-one btn-circle" style="background: #1193d4; color: white; display: block; text-align: center; width: 100%; border-radius: 30px; padding: 12px 25px; font-weight: bold; transition: background 0.3s ease; text-decoration: none;">Discuss This Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </div>
+</section>
+<!-- Project Details Section End -->
 
-    <script>
+@endsection
+
+@section('styles')
+<style>
+  .thumbnail:hover, .thumbnail.active {
+    border-color: #1193d4 !important;
+  }
+  .cs-btn-one:hover {
+    background: #0d7cb3 !important;
+    color: white !important;
+  }
+</style>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         const mainImage = document.getElementById('mainImage');
         const thumbnails = document.querySelectorAll('.thumbnail');
 
+        if(thumbnails.length > 0) {
+            thumbnails[0].classList.add('active');
+        }
+
         thumbnails.forEach(th => {
             th.addEventListener('click', () => {
+                thumbnails.forEach(t => t.classList.remove('active'));
+                th.classList.add('active');
                 mainImage.src = th.dataset.full;
             });
         });
-
-        mainImage.addEventListener('mousemove', function(e) {
-            const rect = mainImage.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            mainImage.style.transformOrigin = `${x}% ${y}%`;
-            mainImage.style.transform = 'scale(2)';
-        });
-
-        mainImage.addEventListener('mouseleave', function() {
-            mainImage.style.transform = 'scale(1)';
-            mainImage.style.transformOrigin = 'center center';
-        });
-
-        const openModalBtn = document.getElementById('openQuotationModal');
-        const closeModalBtn = document.getElementById('closeQuotationModal');
-        const modal = document.getElementById('quotationModal');
-
-        openModalBtn.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-        });
-    </script>
-
-    <style>
-        #mainImage {
-            transition: transform 0.2s ease;
-        }
-
-        .thumbnail:hover {
-            border: 2px solid var(--primary-color);
-        }
-    </style>
+    });
+</script>
 @endsection
