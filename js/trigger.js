@@ -459,11 +459,7 @@
   });
 
   var $items = $('.services_list_style1 .service_item');
-  if ($items.length > 1) {
-    $items.eq(1).addClass('active');
-  } else {
-    $items.first().addClass('active');
-  }
+  $items.first().addClass('active');
   $('.services_list_style1 .service_item .service_head').click(function (e) {
     e.stopPropagation();
     var $parent = $(this).parent('.service_item');
