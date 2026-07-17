@@ -70,23 +70,23 @@
 <section class="pdt-120 pdb-120 bg-black">
   <div class="container">
     <div class="row">
-      <div class="col-xl-6 col-lg-6 mrb-lg-50 wow fadeInLeft">
+      <div class="col-xl-6 col-lg-6 mrb-lg-50 wow fadeInLeft about-col-left">
         <div class="title-box mrb-30">
           <h5 class="sub-title">( About Me )</h5>
           <h2 class="title text-white">Who I Am</h2>
         </div>
-        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8;">
+        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
           @if (!empty($settings->about_desc))
             {!! $settings->about_desc !!}
           @endif
         </div>
       </div>
-      <div class="col-xl-6 col-lg-6 wow fadeInRight">
+      <div class="col-xl-6 col-lg-6 wow fadeInRight about-col-right">
         <div class="title-box mrb-30">
           <h5 class="sub-title">( Mission & Vision )</h5>
           <h2 class="title text-white">My Mission</h2>
         </div>
-        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8;">
+        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
           @if (!empty($settings->mission_vision))
             {!! $settings->mission_vision !!}
           @endif
@@ -386,6 +386,12 @@
       left: auto !important;
       right: -30px !important;
       top: 170px !important; /* Adjust badge height for the shorter card */
+    }
+    .about-col-left {
+      padding-right: 50px !important;
+    }
+    .about-col-right {
+      padding-left: 50px !important;
     }
   }
 
