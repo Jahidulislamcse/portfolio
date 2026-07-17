@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Home | ' . ($settings->company ?? 'Jahidul Islam'))
+@section('title', ($settings->company ?? 'Jahidul Islam'))
 
 @section('content')
 
