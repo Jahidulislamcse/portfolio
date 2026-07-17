@@ -22,7 +22,7 @@ Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::redirect('/contact', 'https://wa.me/8801612152443')->name('contact');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 

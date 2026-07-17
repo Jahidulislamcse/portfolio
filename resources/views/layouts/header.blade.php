@@ -52,15 +52,12 @@
         <li class="{{ request()->routeIs('products.user') ? 'active' : '' }}">
           <a href="{{ route('products.user') }}">Projects</a>
         </li>
-        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-          <a href="{{ route('contact') }}">Contact</a>
-        </li>
       </ul>
       <div class="main-menu-right">
         <div class="portivio-btn-block">
-          <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-          <a class="portivio-btn portivio-btn-primary" href="{{ route('contact') }}">Hire Me</a>
-          <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+          <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+          <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">Hire Me</a>
+          <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
         </div>
         <a href="javascript:void(0);" class="mobile-nav-toggler">
           <span></span>

@@ -23,9 +23,9 @@
               {{ $settings->home_desc ?? 'I build modern, responsive, and user-focused websites, web applications, and APIs that bring concepts to life.' }}
             </p>
             <div class="portivio-btn-block-2">
-              <a class="portivio-btn-2 portivio-btn-2-circle" href="{{ route('contact') }}"><i class="webexbase-icon-v-align-bottom"></i></a>
-              <a class="portivio-btn-2 portivio-btn-2-primary" href="{{ route('contact') }}">GET IN TOUCH</a>
-              <a class="portivio-btn-2 portivio-btn-2-circle" href="{{ route('contact') }}"><i class="webexbase-icon-v-align-bottom"></i></a>
+              <a class="portivio-btn-2 portivio-btn-2-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-v-align-bottom"></i></a>
+              <a class="portivio-btn-2 portivio-btn-2-primary" href="https://wa.me/8801612152443" target="_blank">GET IN TOUCH</a>
+              <a class="portivio-btn-2 portivio-btn-2-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-v-align-bottom"></i></a>
             </div>
           </div>
         </div>
@@ -111,9 +111,9 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-start justify-content-lg-end align-items-center">
           <div class="portivio-btn-block">
-            <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-            <a class="portivio-btn portivio-btn-primary" href="{{ route('contact') }}">GET IN TOUCH</a>
-            <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">GET IN TOUCH</a>
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
           </div>
         </div>
       </div>
@@ -140,9 +140,9 @@
                 <h3 class="text-white">{{ $service->heading }}</h3>
                 <p class="text-white" style="opacity: 0.8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">{{ $service->desc }}</p>
                 <div class="portivio-btn-block">
-                  <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-                  <a class="portivio-btn portivio-btn-primary" href="{{ route('contact') }}">Discuss Project</a>
-                  <a class="portivio-btn portivio-btn-circle" href="{{ route('contact') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                  <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">Discuss Project</a>
+                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
                 </div>
               </div>
             </div>
@@ -407,6 +407,10 @@
     }
     .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
       height: 260px !important; /* Decrease my photo height on mobile view */
+    }
+    .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
+      font-size: 20px !important; /* Reduce font size on mobile view */
+      line-height: 28px !important;
     }
   }
 </style>

@@ -59,14 +59,42 @@
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/8801612152443" target="_blank"
-        class="fixed bottom-6 right-6 text-white rounded-full z-50 flex items-center justify-center"
-        title="Chat with me on WhatsApp"
-        style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+        class="whatsapp-btn"
+        title="Chat with me on WhatsApp">
        <img src="{{ asset('backend/images/whatsapp.png') }}" 
          alt="WhatsApp" 
-         class="w-20 h-20 object-contain"
-         style="width: 80px; height: 80px;">
+         style="width: 80px; height: 80px; display: block;">
     </a>
+
+    <style>
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        animation: whatsapp-pulse 2s infinite ease-in-out;
+        border-radius: 50%;
+        transition: transform 0.2s;
+      }
+      .whatsapp-btn:hover {
+        transform: scale(1.15) !important;
+        animation: none;
+      }
+      @keyframes whatsapp-pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+        }
+        70% {
+          transform: scale(1.08);
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+    </style>
 
     <!-- Mobile Nav Sidebar Content Start -->
     <div class="mobile-nav-wrapper">

@@ -50,55 +50,9 @@
 <!-- Project Section End -->
 
 <!-- Quotation Slide-in Panel & Floating Chip -->
-<div id="quotationChip" class="fixed-quote-chip" title="Request a Quotation">
+<a id="quotationChip" href="https://wa.me/8801612152443?text=Hi%20Jahidul,%20I%20would%20like%20to%20get%20a%20quotation%20for%20a%20project." target="_blank" class="fixed-quote-chip" title="Request a Quotation" style="text-decoration: none;">
     Make <br> Quote
-</div>
-
-<div id="quotationPanel" class="fixed-quote-panel">
-    <div class="quote-panel-header">
-        <h3 class="text-white">Request a Quotation</h3>
-        <button id="closeQuotePanel" class="quote-close-btn">&times;</button>
-    </div>
-    <div class="quote-panel-body">
-        <form action="{{ route('contact.store') }}" method="POST">
-            @csrf
-            <div class="form-group mrb-20">
-                <input type="text" name="name" placeholder="Your Name" class="form-control quote-input" required value="{{ old('name') }}" />
-                @error('name') <span class="text-danger small">{{ $message }}</span> @enderror
-            </div>
-
-            <div class="form-group mrb-20">
-                <input type="email" name="email" placeholder="Your Email" class="form-control quote-input" required value="{{ old('email') }}" />
-                @error('email') <span class="text-danger small">{{ $message }}</span> @enderror
-            </div>
-
-            <div class="form-group mrb-25">
-                <textarea name="message" placeholder="Your Message" rows="5" class="form-control quote-input" required>{{ old('message') }}</textarea>
-                @error('message') <span class="text-danger small">{{ $message }}</span> @enderror
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="quote-submit-btn">Send Message</button>
-            </div>
-
-            @if(session('success'))
-                <div id="success-message" class="alert alert-success mt-4">
-                    {{ session('success') }}
-                </div>
-                <script>
-                    setTimeout(function() {
-                        const msg = document.getElementById('success-message');
-                        if(msg) {
-                            msg.style.transition = "opacity 0.5s";
-                            msg.style.opacity = "0";
-                            setTimeout(() => msg.remove(), 500);
-                        }
-                    }, 3000);
-                </script>
-            @endif
-        </form>
-    </div>
-</div>
+</a>
 
 @endsection
 
@@ -253,25 +207,7 @@
             });
         });
 
-        // Quotation Panel slide toggle
-        const chip = document.getElementById('quotationChip');
-        const panel = document.getElementById('quotationPanel');
-        const closeBtn = document.getElementById('closeQuotePanel');
-
-        chip.addEventListener('click', () => {
-            panel.classList.add('open');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            panel.classList.remove('open');
-        });
-
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && panel.classList.contains('open')) {
-                panel.classList.remove('open');
-            }
-        });
+        // Floating chip redirects directly to WhatsApp
     });
 </script>
 @endsection
