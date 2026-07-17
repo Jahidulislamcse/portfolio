@@ -5,7 +5,7 @@
         <a href="{{ route('home') }}" class="flex items-center gap-2">
           @php $settings = \App\Models\Setting::first(); @endphp
           @if($settings && $settings->logo)
-            <img src="{{ asset('upload/' . $settings->logo) }}" alt="logo" style="max-height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);" />
+            <img src="{{ asset('upload/' . $settings->logo) }}" alt="logo" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);" />
           @else
             <img src="{{ asset('images/logo-light.png') }}" width="165" height="72" alt="logo" />
           @endif

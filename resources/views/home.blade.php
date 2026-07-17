@@ -32,9 +32,9 @@
         <div class="col-xl-5">
           <div class="banner-thumb">
             @if($settings && $settings->logo)
-              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" style="max-height: 380px; width: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 0 auto; object-fit: cover;" />
+              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('upload/' . $settings->logo) }}" alt="Logo" style="height: 480px; width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin: 0 auto; object-fit: cover; object-position: center top;" />
             @else
-              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" />
+              <img class="d-none d-xl-block d-lg-block d-md-block" src="{{ asset('images/bg/h1-Man.png') }}" alt="Thumb" style="height: 480px; width: 100%; border-radius: 24px; object-fit: cover; object-position: center top;" />
             @endif
             <div class="story-box wow fadeInUp">
               <div class="quote-icon"><i class="webexbase-icon-group-88301"></i></div>
@@ -44,7 +44,10 @@
               </div>
             </div>
             <div class="h1-obj1 wow fadeInRight"><img src="{{ asset('images/objects/h1-banner-art2.png') }}" alt="art" /></div>
-            <div class="h1-obj2 wow zoomIn"><img src="{{ asset('images/objects/h1-banner-art3.png') }}" alt="art" /></div>
+            <div class="h1-obj2 wow zoomIn" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #c5ff00; color: black; border-radius: 50%; width: 105px; height: 105px; text-align: center; border: 2px solid #000; padding: 5px; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-family: 'Poppins', sans-serif;">
+                <span style="font-size: 8px; font-weight: bold; text-transform: uppercase; line-height: 1.2; letter-spacing: 0.05em; color: #000;">Years of<br>Experience</span>
+                <span style="font-size: 26px; font-weight: 900; line-height: 1.1; color: #000; margin-top: 2px;">4+</span>
+            </div>
           </div>
         </div>
       </div>
@@ -282,6 +285,27 @@
     .service_content_right h3 {
       font-size: 18px !important;
     }
+  }
+
+  /* Position overrides to prevent overlaps and squeezing */
+  .home_banner_01 .banner-item .banner-info {
+    margin-left: 0px !important; /* Move text block left to make space */
+  }
+  .home_banner_01 .banner-item .banner-thumb .story-box {
+    bottom: -60px !important; /* Push experience quote down */
+    padding: 20px 25px !important; /* Make card smaller */
+  }
+  
+  /* Align star icon cleanly with long banner title */
+  .h1-banner-emoji {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin-right: 15px !important;
+  }
+  .h1-banner-emoji img {
+    max-height: 45px !important;
+    width: auto !important;
+    vertical-align: middle !important;
   }
 </style>
 @endsection
