@@ -464,11 +464,13 @@
   } else {
     $items.first().addClass('active');
   }
-  $items.click(function () {
-    var wasActive = $(this).hasClass('active');
+  $('.services_list_style1 .service_item .service_head').click(function (e) {
+    e.stopPropagation();
+    var $parent = $(this).parent('.service_item');
+    var wasActive = $parent.hasClass('active');
     $items.removeClass('active');
     if (!wasActive) {
-      $(this).addClass('active');
+      $parent.addClass('active');
     }
   });
 
