@@ -64,6 +64,39 @@
           font-size: 12px !important;
         }
       }
+      .about-mission-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      @media (max-width: 767px) {
+        .about-mission-section {
+          padding-top: 50px !important;
+          padding-bottom: 20px !important;
+        }
+        .about-mission-section .title-box {
+          margin-bottom: 15px !important;
+        }
+        .about-mission-section .title-box .title {
+          font-size: 1.6rem !important;
+          margin-top: 5px !important;
+        }
+        .about-mission-section .title-box .sub-title {
+          font-size: 0.75rem !important;
+        }
+        .about-mission-text {
+          font-size: 0.9rem !important;
+          line-height: 1.45 !important;
+          letter-spacing: -0.015em !important;
+          word-spacing: -0.05em !important;
+        }
+        .about-mission-text p {
+          font-size: 0.9rem !important;
+          line-height: 1.45 !important;
+          margin-bottom: 8px !important;
+          letter-spacing: -0.015em !important;
+          word-spacing: -0.05em !important;
+        }
+      }
     </style>
   </head>
 

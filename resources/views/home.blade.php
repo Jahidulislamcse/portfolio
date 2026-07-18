@@ -67,7 +67,7 @@
 <!-- Home Banner End -->
 
 <!-- About & Mission Section Start -->
-<section class="pdt-120 pdb-40 bg-black">
+<section class="pdt-120 pdb-40 bg-black about-mission-section">
   <div class="container">
     <div class="row">
       <div class="col-xl-6 col-lg-6 mrb-lg-50 wow fadeInLeft about-col-left">
@@ -75,7 +75,7 @@
           <h5 class="sub-title">( About Me )</h5>
           <h2 class="title text-white">Who I Am</h2>
         </div>
-        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+        <div class="text-white text-lg leading-relaxed about-mission-text" style="opacity: 0.8; text-align: justify;">
           @if (!empty($settings->about_desc))
             {!! $settings->about_desc !!}
           @endif
@@ -86,7 +86,7 @@
           <h5 class="sub-title">( Mission & Vision )</h5>
           <h2 class="title text-white">My Mission</h2>
         </div>
-        <div class="text-white text-lg leading-relaxed" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+        <div class="text-white text-lg leading-relaxed about-mission-text" style="opacity: 0.8; text-align: justify;">
           @if (!empty($settings->mission_vision))
             {!! $settings->mission_vision !!}
           @endif
