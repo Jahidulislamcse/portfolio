@@ -1815,12 +1815,12 @@ div[class*="kursor"].kursor--1.kursor--down {
 }
 @media screen and (max-width: 767px) {
   .home_banner_01 .banner-item .h1-banner-title {
-    font-size: 48px;
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 425px) {
   .home_banner_01 .banner-item .h1-banner-title {
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 .home_banner_01 .banner-item .h1-banner-title .h1-banner-emoji {
