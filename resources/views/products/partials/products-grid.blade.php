@@ -4,7 +4,7 @@
             <h2 class="text-white mrb-55" style="font-size: 2.25rem; font-weight: bold; border-left: 4px solid #1193d4; padding-left: 15px;">{{ $category->name }}</h2>
             <div class="row">
                 <!-- Left Column -->
-                <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                     @php $leftIndex = 0; @endphp
                     @foreach($category->products as $index => $product)
                         @if($index % 2 == 0)
@@ -35,7 +35,7 @@
                     @endforeach
                 </div>
                 <!-- Right Column -->
-                <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                     @foreach($category->products as $index => $product)
                         @if($index % 2 != 0)
                             <div class="project_style1_item" style="margin-bottom: 50px; margin-top: 100px;">

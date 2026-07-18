@@ -39,6 +39,31 @@
       .anim-scroll-to-top svg.progress-circle path {
         stroke: #ffffff !important; /* Clean white progress circle indicator */
       }
+      @media (max-width: 767px) {
+        .project_style1_item .project_thumb img {
+          height: 180px !important; /* Shorter proportional height for mobile grid columns */
+        }
+        .project_style1_item {
+          margin-bottom: 20px !important;
+          margin-top: 0px !important; /* Remove the staggered margins on mobile */
+        }
+        .project_style1_item .project_content {
+          padding: 15px !important;
+        }
+        .project_style1_item .project_content .project_title_area .title {
+          font-size: 14px !important;
+          line-height: 1.3 !important;
+        }
+        .project_style1_item .project_content .project_title_area .project_category ul li a {
+          font-size: 11px !important;
+        }
+        .project_style1_item .project_content .project_link {
+          width: 32px !important;
+          height: 32px !important;
+          line-height: 32px !important;
+          font-size: 12px !important;
+        }
+      }
     </style>
   </head>
 
