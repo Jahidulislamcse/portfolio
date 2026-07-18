@@ -201,15 +201,15 @@
       $displayReviews = collect([
           (object)[
               'image' => null,
-              'name' => 'Arlene McCoy',
-              'designation' => 'Co. Founder',
-              'comment' => 'Jahid is an exceptional developer who provided high-quality web applications tailored to my business needs. His clean code, secure solutions, and prompt communication made the entire project a seamless success! I highly recommend his services.'
+              'name' => 'Bayezed Bostamy',
+              'designation' => 'Founder, Fleepness',
+              'comment' => 'Outstanding experience working on our Laravel e-commerce system. Jahid has deep technical skills in Laravel, APIs, and responsive design. Deliveries were fast, efficient, and extremely professional.'
           ],
           (object)[
               'image' => null,
-              'name' => 'Maya White',
-              'designation' => 'Founder',
-              'comment' => 'Outstanding experience working on our Laravel e-commerce system. Jahid has deep technical skills in Laravel, APIs, and responsive design. Deliveries were fast, efficient, and extremely professional.'
+              'name' => 'Nadir Ahmed Khan',
+              'designation' => 'Founder and Publisher, Amar Bangla 24',
+              'comment' => 'Jahid is an exceptional developer who provided high-quality web applications tailored to my business needs. His clean code, secure solutions, and prompt communication made the entire project a seamless success! I highly recommend his services.'
           ]
       ]);
   }
