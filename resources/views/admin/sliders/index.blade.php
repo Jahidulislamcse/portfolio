@@ -1,5 +1,5 @@
 @extends('admin.layout.admin-master')
-@section('title', 'Sliders')
+@section('title', 'Client Reviews')
 
 @section('main')
 <div class="container-fluid mt-4 px-4 py-4">
@@ -15,7 +15,7 @@
 
         <div class="card mb-4 px-3">
             <div class="card-header">
-                <h4>Sliders</h4>
+                <h4>Client Reviews</h4>
             </div>
             <div class="card-body">
                 @foreach($sliders as $slider)
@@ -49,7 +49,7 @@
 
         <div class="card mb-4 px-3">
             <div class="card-header">
-                <h4>Add New Sliders</h4>
+                <h4>Add New Reviews</h4>
             </div>
             <div class="card-body" id="new-sliders-container">
                 <div class="mb-4 new-slider-row">
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mb-5">Save Sliders</button>
+        <button type="submit" class="btn btn-primary mb-5">Save Reviews</button>
     </form>
 </div>
 

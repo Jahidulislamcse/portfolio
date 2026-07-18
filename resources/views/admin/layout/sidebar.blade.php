@@ -58,10 +58,10 @@
                     </li>
 
                      <li class="nav-item">
-                        <a href="{{ route('admin.sliders.index') }}"
-                            class="nav-link d-flex align-items-center {{ request()->routeIs('admin.sliders.index') ? 'active bg-warning text-white' : 'text-dark' }}">
+                        <a href="{{ route('admin.reviews.index') }}"
+                            class="nav-link d-flex align-items-center {{ request()->routeIs('admin.reviews.index') ? 'active bg-warning text-white' : 'text-dark' }}">
                             <img src="{{ asset('backend/icons/slider.png') }}" alt="Settings Icon" class="me-2" style="width:32px; height:32px;">
-                            <span class="text-white text-lg">Sliders</span>
+                            <span class="text-white text-lg">Client Reviews</span>
                         </a>
                     </li>
                    

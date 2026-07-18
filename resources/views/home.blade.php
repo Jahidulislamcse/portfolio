@@ -195,6 +195,107 @@
 </section>
 <!-- Project Section End -->
 
+@php
+  $displayReviews = $reviews;
+  if ($displayReviews->isEmpty()) {
+      $displayReviews = collect([
+          (object)[
+              'image' => null,
+              'name' => 'Arlene McCoy',
+              'designation' => 'Co. Founder',
+              'comment' => 'Jahid is an exceptional developer who provided high-quality web applications tailored to my business needs. His clean code, secure solutions, and prompt communication made the entire project a seamless success! I highly recommend his services.'
+          ],
+          (object)[
+              'image' => null,
+              'name' => 'Maya White',
+              'designation' => 'Founder',
+              'comment' => 'Outstanding experience working on our Laravel e-commerce system. Jahid has deep technical skills in Laravel, APIs, and responsive design. Deliveries were fast, efficient, and extremely professional.'
+          ]
+      ]);
+  }
+@endphp
+
+<!-- Testimonials Section Start -->
+<section class="pdb-40 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="section-title mrb-55 mrb-lg-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 col-lg-5 col-md-12 mrb-md-30">
+          <div class="title-box anim-heading animation-style1">
+            <h5 class="sub-title">( TESTIMONIALS )</h5>
+            <h2 class="title wt-split-text anim-title text-white">What My Clients Say</h2>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-7 col-md-12 d-flex justify-content-start justify-content-lg-end align-items-center">
+          <div class="portivio-btn-block">
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">DISCUSS PROJECT</a>
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3">
+          <div class="testimonial_01_quote_box mrb-xl-30" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; margin-bottom: 30px;">
+            <img src="{{ asset('images/testimonials/man.png') }}" alt="quote icon" />
+            <h5 class="rate text-white" style="font-size: 2rem; font-weight: bold; margin-top: 15px;">5.0/5</h5>
+            <div class="ratings" style="color: #ffb400; margin-bottom: 10px;">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-white" style="opacity: 0.6; font-size: 0.95rem;">Based on Client Feedback</p>
+          </div>
+        </div>
+        <div class="col-xl-9 pos-rel">
+          <div class="testimonial_01_carousel swiper" style="overflow: hidden;">
+            <div class="swiper-wrapper">
+              @foreach($displayReviews as $review)
+              <div class="swiper-slide">
+                <div class="testimonial_01_item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; display: flex; gap: 20px; align-items: flex-start; height: 100%;">
+                  @if($review->image)
+                  <div class="testimonial_thumbnail" style="flex-shrink: 0; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.1);">
+                    <img class="img-full" src="{{ asset('upload/'.$review->image) }}" alt="{{ $review->name }}" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  @else
+                  <div class="testimonial_thumbnail" style="flex-shrink: 0; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; background: #1193d4; color: #fff; font-weight: bold; font-size: 1.5rem;">
+                    {{ strtoupper(substr($review->name ?? 'C', 0, 1)) }}
+                  </div>
+                  @endif
+                  <div class="testimonial_content" style="flex-grow: 1;">
+                    <p class="comments text-white" style="font-size: 1.05rem; line-height: 1.6; opacity: 0.85; margin-bottom: 20px; font-style: italic;">
+                      "{{ $review->comment }}"
+                    </p>
+                    <div class="testimonial-bottom-part">
+                      <h4 class="testimonial-title text-white" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 5px;">{{ $review->name }}</h4>
+                      <span class="testimonial-subtitle" style="color: #1193d4; font-size: 0.9rem; font-weight: 500;">{{ $review->designation ?? 'Verified Client' }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="testimonial_01_nav" style="display: flex; gap: 15px; margin-top: 30px; align-items: center;">
+            <div class="testimonial_01_pagination" style="color: #ffffff; opacity: 0.7; font-size: 0.95rem;"></div>
+            <div class="testimonial_01_button_prev" style="cursor: pointer; color: #ffffff; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fas fa-chevron-left"></i></div>
+            <div class="testimonial_01_button_next" style="cursor: pointer; color: #ffffff; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fas fa-chevron-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Testimonials Section End -->
+
 <!-- Brands Section Start -->
 <section class="pdb-120 pdt-120 bg-cover bg-black" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="container">

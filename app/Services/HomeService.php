@@ -6,7 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Service;
 use App\Models\Setting;
-use App\Models\Slider;
+use App\Models\Review;
 use App\Models\Product;
 
 class HomeService
@@ -14,7 +14,7 @@ class HomeService
     public function getHomeData(): array
     {
         $settings = Setting::first();
-        $sliders  = Slider::all();
+        $reviews  = Review::all();
         $services = Service::all();
         $brands   = Brand::all();
 
@@ -24,7 +24,7 @@ class HomeService
         $selectedCategory = null;
 
 
-        return compact('settings', 'sliders', 'services', 'brands', 'allCategories', 'categories', 'selectedCategory');
+        return compact('settings', 'reviews', 'services', 'brands', 'allCategories', 'categories', 'selectedCategory');
 
     }
 }

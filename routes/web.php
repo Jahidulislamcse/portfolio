@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])
@@ -70,11 +71,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::delete('/{brand}', 'destroy')->name('destroy');
         });
 
-        Route::prefix('sliders')->name('sliders.')->controller(SliderController::class)->group(function () {
+        Route::prefix('reviews')->name('reviews.')->controller(ReviewController::class)->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/', 'store')->name('store');
-            Route::put('/{slider}', 'update')->name('update');
-            Route::delete('/{slider}', 'destroy')->name('destroy');
         });
 
         Route::get('messages', [MessageController::class, 'messages'])->name('messages');
