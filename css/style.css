@@ -1785,7 +1785,7 @@ div[class*="kursor"].kursor--1.kursor--down {
 }
 @media screen and (max-width: 425px) {
   .home_banner_01 .banner-item .h1-banner-title {
-    font-size: 24px;      /* even smaller on very small screens */
+    font-size: 18px;      /* even smaller on very small screens */
     margin-bottom: 10px;  /* keep the reduced spacing */
   }
 }
