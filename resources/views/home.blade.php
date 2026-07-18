@@ -98,7 +98,7 @@
 <!-- About & Mission Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-120 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+<section class="pdb-40 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60">
     <div class="container">
       <div class="row">
@@ -154,7 +154,7 @@
 <!-- Service Section End -->
 
 <!-- Project Section Start -->
-<section class="project_section_area pdt-120 pdb-120 bg-black" style="border-top: 1px solid rgba(255,255,255,0.05);">
+<section class="project_section_area pdt-40 pdb-120 bg-black" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60 wow fadeInUp">
     <div class="container">
       <div class="row align-items-center">
