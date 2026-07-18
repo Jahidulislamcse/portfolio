@@ -300,7 +300,9 @@
     .services_list_style1 .service_item .service_content .service_content_left img {
       height: 90px !important;
       width: 130px !important;
-      object-fit: cover !important;
+      object-fit: contain !important;
+      background-color: #111111 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
       border-radius: 8px !important;
     }
     .services_list_style1 .service_item .service_content .service_content_right {
