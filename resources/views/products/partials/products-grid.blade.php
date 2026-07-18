@@ -8,7 +8,7 @@
                     @php $leftIndex = 0; @endphp
                     @foreach($category->products as $index => $product)
                         @if($index % 2 == 0)
-                            <div class="project_style1_item" style="margin-bottom: 50px; {{ $leftIndex > 0 ? 'margin-top: 50px;' : '' }}">
+                            <div class="project_style1_item" onclick="window.location='{{ route('products.show', $product->slug) }}'" style="cursor: pointer; margin-bottom: 50px; {{ $leftIndex > 0 ? 'margin-top: 50px;' : '' }}">
                                 <div class="project_thumb scale-img">
                                     @if($product->cover_image)
                                         <img class="img-full" src="{{ asset('upload/' . $product->cover_image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
@@ -38,7 +38,7 @@
                 <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                     @foreach($category->products as $index => $product)
                         @if($index % 2 != 0)
-                            <div class="project_style1_item" style="margin-bottom: 50px; margin-top: 100px;">
+                            <div class="project_style1_item" onclick="window.location='{{ route('products.show', $product->slug) }}'" style="cursor: pointer; margin-bottom: 50px; margin-top: 100px;">
                                 <div class="project_thumb scale-img">
                                     @if($product->cover_image)
                                         <img class="img-full" src="{{ asset('upload/' . $product->cover_image) }}" alt="{{ $product->name }}" style="height: 420px; width: 100%; object-fit: cover;" />
