@@ -28,8 +28,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-12">
-        <div class="project-thumb mrb-40" style="position: relative; overflow: hidden; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
-          <img id="mainImage" class="img-full border-radius-10px" src="{{ asset('upload/' . ($product->cover_image ?? ($product->images->first()->image ?? ''))) }}" alt="{{ $product->name }}" style="max-height: 550px; width: 100%; object-fit: cover; transition: transform 0.3s ease;" />
+        <div class="project-thumb-container mrb-40">
+          <img id="mainImage" class="border-radius-10px" src="{{ asset('upload/' . ($product->cover_image ?? ($product->images->first()->image ?? ''))) }}" alt="{{ $product->name }}" />
         </div>
         
         @if ($product->images->count())
@@ -89,6 +89,37 @@
   .cs-btn-one:hover {
     background: #0d7cb3 !important;
     color: white !important;
+  }
+  
+  .project-thumb-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d0d0d;
+    height: 550px;
+  }
+  .project-thumb-container img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .project-thumb-container {
+      height: 380px;
+    }
+  }
+  @media (max-width: 576px) {
+    .project-thumb-container {
+      height: 300px;
+    }
   }
 </style>
 @endsection
