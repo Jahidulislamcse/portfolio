@@ -468,12 +468,12 @@
   }
   @media (max-width: 991px) {
     .h1-banner-title {
-      font-size: 38px !important;
+      font-size: 32px !important;
     }
   }
   @media (max-width: 767px) {
     .h1-banner-title {
-      font-size: 30px !important;
+      font-size: 24px !important;
     }
   }
   
@@ -684,13 +684,13 @@
     .portivio-btn-block-2 .portivio-btn-2-primary,
     .portivio-btn-2-primary {
       padding: 10px 18px !important;
-      font-size: 13px !important;
+      font-size: 11px !important;
     }
     .portivio-btn-block-2 .portivio-btn-2-circle,
     .portivio-btn-2-circle {
       width: 36px !important;
       height: 36px !important;
-      font-size: 14px !important;
+      font-size: 12px !important;
     }
   }
 
