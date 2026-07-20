@@ -27,6 +27,16 @@
               <a class="portivio-btn-2 portivio-btn-2-primary" href="https://wa.me/8801612152443" target="_blank">GET IN TOUCH</a>
               <a class="portivio-btn-2 portivio-btn-2-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-v-align-bottom"></i></a>
             </div>
+
+            @if(isset($settings->skills) && $settings->skills->count() > 0)
+              <div class="skills-bubbles-container">
+                @foreach($settings->skills as $skill)
+                  <div class="skill-bubble" title="Technology Skill" style="animation-delay: {{ 0.1 * $loop->index }}s;">
+                    <img src="{{ asset('upload/' . $skill->image) }}" alt="Skill Logo" />
+                  </div>
+                @endforeach
+              </div>
+            @endif
           </div>
         </div>
         <div class="col-xl-5">
@@ -734,6 +744,64 @@
     }
     .marquee-one__inner.style-2 {
       margin-top: -16px !important;
+    }
+  }
+
+  /* Skills Bubbles Styling */
+  @keyframes fadeInUpBubble {
+    from {
+      opacity: 0;
+      transform: translateY(15px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .skills-bubbles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .skill-bubble {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 8px;
+    opacity: 0;
+    animation: fadeInUpBubble 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  .skill-bubble:hover {
+    background: #1193d4;
+    border-color: #1193d4;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(17, 147, 212, 0.3);
+  }
+  .skill-bubble img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  @media (max-width: 991.98px) {
+    .skills-bubbles-container {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .skill-bubble {
+      width: 42px;
+      height: 42px;
+      padding: 6px;
     }
   }
 </style>
