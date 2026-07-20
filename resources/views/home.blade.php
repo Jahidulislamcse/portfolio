@@ -944,12 +944,14 @@
   .github-browser-window {
     display: block;
     background: #0d0d0f;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .github-browser-window:hover {
     transform: translateY(-8px) scale(1.01);
@@ -998,14 +1000,20 @@
   }
   .browser-content {
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
     background: #0b0b0c;
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .github-screenshot-img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.4s ease;
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important;
   }
   .github-browser-window:hover .github-screenshot-img {
     transform: scale(1.005);
@@ -1021,6 +1029,8 @@
     justify-content: center;
     align-items: center;
     opacity: 0;
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important;
     transition: opacity 0.3s ease;
     backdrop-filter: blur(2px);
   }
