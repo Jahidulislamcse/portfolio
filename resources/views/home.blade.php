@@ -10,12 +10,14 @@
     <div class="banner-item">
       <div class="row align-items-center">
         <div class="col-xl-12 anim-heading animation-style1">
-          <h1 class="h1-banner-title text-white f-weight-400 mrb-sm-20 wow fadeInLeft">
-            <span class="h1-banner-emoji mrr-20"><img src="{{ asset('images/objects/h1-banner-art1.png') }}" alt="emoji" /></span>I’m {{ 'Jahidul Islam' }}
+          <h1 class="h1-banner-title text-white f-weight-400 mrb-sm-20" id="hero-title-1">
+            <span class="h1-banner-emoji mrr-20"><img src="{{ asset('images/objects/h1-banner-art1.png') }}" alt="emoji" /></span><span class="typing-text"></span>
           </h1>
         </div>
         <div class="col-xl-12 anim-heading animation-style1">
-          <h1 class="h1-banner-title text-white f-weight-400 mrb-xxl-30 anim-title">{{ $settings->home_heading ?? 'Web and API Developer' }}</h1>
+          <h1 class="h1-banner-title text-white f-weight-400 mrb-xxl-30 anim-title" id="hero-title-2" style="opacity: 0;">
+            <span class="typing-text"></span>
+          </h1>
         </div>
         <div class="col-xl-7">
           <div class="banner-info">
@@ -880,8 +882,22 @@
       height: 32px !important;
       padding: 5px !important;
       margin-right: -8px !important;
-      border-width: 1.5px !important;
     }
+
+  /* Blinking cursor typing animation styling */
+  .typing-text::after {
+    content: '|';
+    animation: blinkCursor 0.8s infinite;
+    font-weight: 300;
+    margin-left: 4px;
+    color: var(--webex-primary-color);
+  }
+  .typing-text.typing-complete::after {
+    display: none;
+  }
+  @keyframes blinkCursor {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
   }
 </style>
 @endsection
@@ -907,6 +923,40 @@
                 1024: { slidesPerView: 5, spaceBetween: 30 },
             },
         });
+
+        // Sequential Typing Animation
+        const text1 = "I’m Jahidul Islam";
+        const text2 = {!! json_encode($settings->home_heading ?? 'Web and API Developer') !!};
+
+        function typeWriter(element, text, speed, callback) {
+            let i = 0;
+            element.innerHTML = '';
+            element.classList.remove('typing-complete');
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.add('typing-complete');
+                    if (callback) callback();
+                }
+            }
+            type();
+        }
+
+        const el1 = document.querySelector('#hero-title-1 .typing-text');
+        const el2 = document.querySelector('#hero-title-2 .typing-text');
+        
+        if (el1 && el2) {
+            typeWriter(el1, text1, 80, () => {
+                const title2 = document.getElementById('hero-title-2');
+                title2.style.transition = 'opacity 0.5s ease';
+                title2.style.opacity = '1';
+                typeWriter(el2, text2, 60);
+            });
+        }
 
         // AJAX Category Filtering
         const tabs = document.querySelectorAll('.category-tab');
