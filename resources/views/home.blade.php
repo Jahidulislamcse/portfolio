@@ -619,7 +619,7 @@
     .home_banner_01 .banner-item .banner-thumb {
       position: relative !important;
       margin-top: 25px !important;
-      margin-bottom: 50px !important;
+      margin-bottom: 42px !important;
       bottom: auto !important;
       right: auto !important;
       left: auto !important;
@@ -750,7 +750,7 @@
   
   @media (max-width: 768px) {
     .marquee-wrapper.marquee-one {
-      padding: 70px 0;
+      padding: 20px 0 70px 0 !important;
     }
     .marquee-one__single-item {
       font-size: 22px !important;
@@ -769,7 +769,7 @@
   
   @media (max-width: 576px) {
     .marquee-wrapper.marquee-one {
-      padding: 30px 0;
+      padding: 10px 0 30px 0 !important;
     }
     .marquee-one__single-item {
       font-size: 11px !important;
