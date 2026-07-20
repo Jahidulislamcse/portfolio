@@ -520,7 +520,7 @@
       margin-bottom: 15px !important;
     }
     .services_list_style1 .service_item .service_content .service_content_right p {
-      font-size: 11px !important;
+      font-size: 13px !important;
       line-height: 1.5 !important;
       text-align: justify !important;
       margin-bottom: 0 !important;
