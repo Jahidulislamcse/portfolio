@@ -769,7 +769,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
+    background: #ffffff;
     border: 2px solid #000000;
     display: flex;
     justify-content: center;
