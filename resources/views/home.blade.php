@@ -66,6 +66,111 @@
 </section>
 <!-- Home Banner End -->
 
+<!-- Marquee Section Start -->
+<div class="marquee-wrapper marquee-one">
+  <div class="marquee-one__inner">
+    <div class="swiper marquee-slider">
+      <div class="swiper-wrapper slide-transtion">
+        @for ($i = 0; $i < 3; $i++)
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Digital Agency</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Digital Excellence</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Smart & Efficient</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Powerful Performance</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Research Marketing</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Website Marketing</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item">
+            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+            <span class="title">Lifetime Update</span>
+          </div>
+        </div>
+        @endfor
+      </div>
+    </div>
+  </div>
+  <div class="marquee-one__inner style-2">
+    <div class="swiper marquee-slider" dir="rtl">
+      <div class="swiper-wrapper slide-transtion">
+        @for ($i = 0; $i < 3; $i++)
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Digital Agency</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Digital Excellence</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Smart & Efficient</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Powerful Performance</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Research Marketing</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Website Marketing</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="marquee-one__single-item style-1">
+            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+            <span class="title">Lifetime Update</span>
+          </div>
+        </div>
+        @endfor
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Marquee Section End -->
+
 <!-- About & Mission Section Start -->
 <section class="pdt-120 pdb-40 bg-black about-mission-section">
   <div class="container">
@@ -554,6 +659,74 @@
       height: 260px !important; /* Decrease my photo height on mobile view */
     }
   }
+
+  /* Marquee Section Styles */
+  .marquee-wrapper.marquee-one {
+    background: #ffffff;
+    padding: 120px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .marquee-one__inner {
+    position: relative;
+    padding: 30px 0 26px 0;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    background: #2d1ee2;
+    z-index: 2;
+  }
+  .marquee-one__inner.style-2 {
+    margin-top: -65px;
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+    background: #b4e019;
+    z-index: 1;
+  }
+  .marquee-one__single-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.8px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+  .marquee-one__single-item img {
+    height: auto;
+    width: auto;
+    max-height: 35px;
+  }
+  .marquee-one__single-item.style-1 {
+    color: #0f0f11;
+  }
+  .marquee-slider .swiper-slide {
+    width: auto !important;
+  }
+  .marquee-slider .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+  
+  @media (max-width: 768px) {
+    .marquee-wrapper.marquee-one {
+      padding: 80px 0;
+    }
+    .marquee-one__single-item {
+      font-size: 28px;
+      gap: 15px;
+    }
+    .marquee-one__single-item img {
+      max-height: 25px;
+    }
+    .marquee-one__inner {
+      padding: 20px 0 16px 0;
+    }
+    .marquee-one__inner.style-2 {
+      margin-top: -45px;
+    }
+  }
 </style>
 @endsection
 
@@ -604,6 +777,26 @@
                         }
                     })
                     .catch(err => console.error(err));
+            });
+        });
+
+        // Initialize Swiper for marquee slider
+        const marqueeSliders = document.querySelectorAll('.marquee-slider');
+        marqueeSliders.forEach(slider => {
+            new Swiper(slider, {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 50,
+                speed: 10000,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+                freeMode: {
+                    enabled: true,
+                    momentum: false,
+                },
+                allowTouchMove: false,
             });
         });
     });
