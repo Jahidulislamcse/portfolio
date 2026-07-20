@@ -499,7 +499,7 @@
       font-size: 13px !important;
     }
     .service_content_right h3 {
-      font-size: 15px !important;
+      font-size: 13px !important;
     }
     .category-tab {
       font-size: 13px !important;
@@ -513,13 +513,25 @@
       font-size: 22px !important;
       line-height: 1.3 !important;
     }
+    .services_list_style1 .service_item.active .service_head {
+      margin-bottom: 12px !important;
+    }
+    .services_list_style1 .service_item.active .service_content {
+      margin-bottom: 15px !important;
+    }
+    .services_list_style1 .service_item .service_content .service_content_right p {
+      font-size: 11px !important;
+      line-height: 1.5 !important;
+      text-align: justify !important;
+      margin-bottom: 0 !important;
+    }
     
     /* Apply mini service images on mobile view */
     .services_list_style1 .service_item .service_content {
       display: flex !important;
       flex-direction: column !important;
-      gap: 15px !important;
-      padding: 20px 15px !important;
+      gap: 10px !important;
+      padding: 12px 10px !important;
     }
     .services_list_style1 .service_item .service_content .service_content_left {
       display: block !important;
