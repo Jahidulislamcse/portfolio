@@ -485,10 +485,33 @@
   }
   @media (max-width: 767px) {
     .service_title {
-      font-size: 17px !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+    .services_list_style1 .service_item .service_head {
+      padding: 12px 0 !important;
+    }
+    .services_list_style1 .service_item .service_head .service_count {
+      font-size: 13px !important;
+      margin-top: 0 !important;
+    }
+    .services_list_style1 .service_item .service_head:before {
+      font-size: 13px !important;
     }
     .service_content_right h3 {
-      font-size: 16px !important;
+      font-size: 15px !important;
+    }
+    .category-tab {
+      font-size: 13px !important;
+      padding: 6px 14px !important;
+      margin: 3px !important;
+    }
+    .sub-title {
+      font-size: 13px !important;
+    }
+    .title-box .title {
+      font-size: 22px !important;
+      line-height: 1.3 !important;
     }
     
     /* Apply mini service images on mobile view */
