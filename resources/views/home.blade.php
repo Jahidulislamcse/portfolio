@@ -652,7 +652,7 @@
 
   /* Marquee Section Styles */
   .marquee-wrapper.marquee-one {
-    background: #ffffff;
+    background: transparent;
     padding: 120px 0;
     overflow: hidden;
     position: relative;
