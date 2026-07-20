@@ -468,6 +468,11 @@
     font-size: 38px !important;
     line-height: 1.15 !important;
   }
+  @media (min-width: 992px) {
+    #hero-title-2 {
+      margin-bottom: 40px !important;
+    }
+  }
   @media (max-width: 991px) {
     .h1-banner-title {
       font-size: 32px !important;
