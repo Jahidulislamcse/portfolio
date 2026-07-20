@@ -204,6 +204,41 @@
 </section>
 <!-- About & Mission Section End -->
 
+<!-- GitHub Section Start -->
+<section class="pdt-60 pdb-60 bg-black github-activity-section" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 text-center">
+        <div class="title-box mrb-40 wow fadeInUp">
+          <h5 class="sub-title">( GitHub Activity )</h5>
+          <h2 class="title text-white">My Open Source Contributions</h2>
+        </div>
+        
+        <!-- Browser Window Mockup wrapping the GitHub Screenshot -->
+        <a href="https://github.com/Jahidulislamcse" target="_blank" class="github-browser-window wow fadeInUp" data-wow-delay="0.2s">
+          <div class="browser-header">
+            <div class="browser-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="browser-address-bar">
+              <i class="fas fa-lock"></i> github.com/Jahidulislamcse
+            </div>
+          </div>
+          <div class="browser-content">
+            <img src="{{ asset('upload/github.PNG') }}" alt="GitHub Profile Jahidulislamcse" class="github-screenshot-img" />
+            <div class="github-overlay-glow">
+              <span class="glow-btn"><i class="fab fa-github"></i> Visit Profile</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GitHub Section End -->
+
 <!-- Service Section Start -->
 <section class="pdb-40 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60">
@@ -903,6 +938,133 @@
   @keyframes blinkCursor {
     from, to { opacity: 0 }
     50% { opacity: 1 }
+  }
+
+  /* GitHub Section & Browser Mockup Styling */
+  .github-browser-window {
+    display: block;
+    background: #0d0d0f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+  }
+  .github-browser-window:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(17, 147, 212, 0.4);
+    box-shadow: 0 30px 60px rgba(17, 147, 212, 0.15);
+  }
+  .browser-header {
+    background: #18181b;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+  }
+  .browser-dots {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 20px;
+  }
+  .browser-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  
+  .browser-address-bar {
+    margin: 0 auto;
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 4px 40px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+  }
+  .browser-address-bar i {
+    font-size: 10px;
+    color: #27c93f;
+  }
+  .browser-content {
+    position: relative;
+    overflow: hidden;
+    background: #0b0b0c;
+  }
+  .github-screenshot-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .github-browser-window:hover .github-screenshot-img {
+    transform: scale(1.005);
+  }
+  .github-overlay-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+  }
+  .github-browser-window:hover .github-overlay-glow {
+    opacity: 1;
+  }
+  .glow-btn {
+    background: #1193d4;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(17, 147, 212, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  .github-browser-window:hover .glow-btn {
+    transform: translateY(0);
+  }
+  @media (max-width: 767px) {
+    .browser-header {
+      padding: 10px 15px;
+    }
+    .browser-address-bar {
+      padding: 3px 20px;
+      font-size: 9px;
+      max-width: 180px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .browser-dots {
+      display: none;
+    }
+    .glow-btn {
+      font-size: 11px;
+      padding: 8px 16px;
+    }
   }
 </style>
 @endsection
