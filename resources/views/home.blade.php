@@ -1001,11 +1001,7 @@
   .browser-content {
     position: relative;
     overflow: hidden !important;
-    background: #09090b;
-    padding: 24px 30px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #0b0b0c;
     border-bottom-left-radius: 14px !important;
     border-bottom-right-radius: 14px !important;
     -webkit-backface-visibility: hidden;
@@ -1016,24 +1012,25 @@
     height: auto;
     display: block;
     transition: transform 0.4s ease;
-    border-radius: 8px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important;
   }
   .github-browser-window:hover .github-screenshot-img {
     transform: scale(1.005);
   }
   .github-overlay-glow {
     position: absolute;
-    top: 24px !important;
-    left: 30px !important;
-    right: 30px !important;
-    bottom: 24px !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    border-radius: 8px !important;
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important;
     transition: opacity 0.3s ease;
     backdrop-filter: blur(2px);
   }
@@ -1073,15 +1070,6 @@
     }
     .browser-dots {
       display: none;
-    }
-    .browser-content {
-      padding: 12px 16px !important;
-    }
-    .github-overlay-glow {
-      top: 12px !important;
-      left: 16px !important;
-      right: 16px !important;
-      bottom: 12px !important;
     }
     .glow-btn {
       font-size: 11px;
