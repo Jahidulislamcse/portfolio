@@ -963,36 +963,31 @@
     padding: 12px 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
   }
   .browser-dots {
-    display: flex;
-    gap: 8px;
-    position: absolute;
-    left: 20px;
+    display: none !important;
   }
-  .browser-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-  .dot-red { background: #ff5f56; }
-  .dot-yellow { background: #ffbd2e; }
-  .dot-green { background: #27c93f; }
-  
   .browser-address-bar {
-    margin: 0 auto;
     background: #09090b;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
-    padding: 4px 40px;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
-    display: flex;
+    padding: 6px 40px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 8px;
     letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  .github-browser-window:hover .browser-address-bar {
+    border-color: rgba(17, 147, 212, 0.4);
+    background: rgba(17, 147, 212, 0.05);
+    color: #1193d4;
   }
   .browser-address-bar i {
     font-size: 10px;
