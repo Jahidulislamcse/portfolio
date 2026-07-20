@@ -71,100 +71,90 @@
   <div class="marquee-one__inner">
     <div class="swiper marquee-slider">
       <div class="swiper-wrapper slide-transtion">
-        @for ($i = 0; $i < 3; $i++)
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Digital Agency</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Digital Excellence</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Smart & Efficient</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Powerful Performance</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Research Marketing</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Website Marketing</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item">
-            <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
-            <span class="title">Lifetime Update</span>
-          </div>
-        </div>
-        @endfor
+        @if ($services && $services->count())
+          @for ($i = 0; $i < 3; $i++)
+            @foreach ($services as $service)
+              <div class="swiper-slide">
+                <div class="marquee-one__single-item">
+                  <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+                  <span class="title">{{ $service->heading }}</span>
+                </div>
+              </div>
+            @endforeach
+          @endfor
+        @else
+          @for ($i = 0; $i < 3; $i++)
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item">
+                <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+                <span class="title">Digital Agency</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item">
+                <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+                <span class="title">Digital Excellence</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item">
+                <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+                <span class="title">Smart & Efficient</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item">
+                <img src="{{ asset('images/marquee-shape-01.png') }}" alt="" />
+                <span class="title">Powerful Performance</span>
+              </div>
+            </div>
+          @endfor
+        @endif
       </div>
     </div>
   </div>
   <div class="marquee-one__inner style-2">
     <div class="swiper marquee-slider" dir="rtl">
       <div class="swiper-wrapper slide-transtion">
-        @for ($i = 0; $i < 3; $i++)
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Digital Agency</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Digital Excellence</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Smart & Efficient</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Powerful Performance</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Research Marketing</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Website Marketing</span>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="marquee-one__single-item style-1">
-            <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
-            <span class="title">Lifetime Update</span>
-          </div>
-        </div>
-        @endfor
+        @if ($services && $services->count())
+          @for ($i = 0; $i < 3; $i++)
+            @foreach ($services as $service)
+              <div class="swiper-slide">
+                <div class="marquee-one__single-item style-1">
+                  <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+                  <span class="title">{{ $service->heading }}</span>
+                </div>
+              </div>
+            @endforeach
+          @endfor
+        @else
+          @for ($i = 0; $i < 3; $i++)
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item style-1">
+                <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+                <span class="title">Digital Agency</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item style-1">
+                <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+                <span class="title">Digital Excellence</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item style-1">
+                <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+                <span class="title">Smart & Efficient</span>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="marquee-one__single-item style-1">
+                <img src="{{ asset('images/marquee-shape-02.png') }}" alt="" />
+                <span class="title">Powerful Performance</span>
+              </div>
+            </div>
+          @endfor
+        @endif
       </div>
     </div>
   </div>
