@@ -923,6 +923,7 @@
       padding: 5px !important;
       margin-right: -8px !important;
     }
+  }
 
   /* Blinking cursor typing animation styling */
   .typing-text::after {
