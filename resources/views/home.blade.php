@@ -720,20 +720,20 @@
   
   @media (max-width: 576px) {
     .marquee-wrapper.marquee-one {
-      padding: 50px 0;
+      padding: 40px 0;
     }
     .marquee-one__single-item {
-      font-size: 18px !important;
-      gap: 10px !important;
+      font-size: 14px !important;
+      gap: 8px !important;
     }
     .marquee-one__single-item img {
-      max-height: 15px !important;
+      max-height: 12px !important;
     }
     .marquee-one__inner {
-      padding: 12px 0 10px 0 !important;
+      padding: 10px 0 8px 0 !important;
     }
     .marquee-one__inner.style-2 {
-      margin-top: -30px !important;
+      margin-top: -24px !important;
     }
   }
 </style>
