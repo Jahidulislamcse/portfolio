@@ -546,10 +546,11 @@
     margin: 0 auto !important;
   }
 
-  /* Reduce gap below the main hero headings */
+  /* Reduce gap below the main hero headings and justify text */
   .home_banner_01 .banner-item .h1-banner-text {
     margin-top: 15px !important;
     margin-bottom: 25px !important;
+    text-align: justify !important;
   }
 
   /* Reduce font size for the quote title globally */
@@ -657,6 +658,27 @@
     }
     .home_banner_01 .banner-item .banner-thumb .banner-profile-img {
       height: 260px !important; /* Decrease my photo height on mobile view */
+    }
+    .home_banner_01 .banner-item .h1-banner-text {
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      padding-left: 15px !important;
+    }
+    .home_banner_01 .banner-item .h1-banner-text:before {
+      height: 8px !important;
+      width: 8px !important;
+      top: 5px !important;
+    }
+    .portivio-btn-block-2 .portivio-btn-2-primary,
+    .portivio-btn-2-primary {
+      padding: 10px 18px !important;
+      font-size: 11px !important;
+    }
+    .portivio-btn-block-2 .portivio-btn-2-circle,
+    .portivio-btn-2-circle {
+      width: 36px !important;
+      height: 36px !important;
+      font-size: 12px !important;
     }
   }
 
@@ -769,8 +791,8 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid #000000;
+    background: #ffffff !important;
+    border: 2px solid #000000 !important;
     display: flex;
     justify-content: center;
     align-items: center;
