@@ -470,7 +470,7 @@
   }
   @media (min-width: 992px) {
     #hero-title-2 {
-      margin-bottom: 30px !important;
+      margin-bottom: 20px !important;
     }
   }
   @media (max-width: 991px) {
