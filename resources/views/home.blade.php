@@ -465,7 +465,7 @@
   
   /* Custom Font Size and Styling Adjustments */
   .h1-banner-title {
-    font-size: 50px !important;
+    font-size: 45px !important;
     line-height: 1.15 !important;
   }
   @media (max-width: 991px) {
