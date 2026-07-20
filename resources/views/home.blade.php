@@ -690,7 +690,7 @@
     .portivio-btn-2-circle {
       width: 36px !important;
       height: 36px !important;
-      font-size: 12px !important;
+      font-size: 14px !important;
     }
   }
 
