@@ -761,7 +761,6 @@
   .skills-bubbles-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
     margin-top: 25px;
     align-items: center;
     justify-content: flex-start;
@@ -770,23 +769,27 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     padding: 8px;
     opacity: 0;
     animation: fadeInUpBubble 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    margin-right: -12px;
+    position: relative;
+    z-index: 1;
   }
   .skill-bubble:hover {
     background: #1193d4;
     border-color: #1193d4;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(17, 147, 212, 0.3);
+    transform: translateY(-5px) scale(1.15);
+    box-shadow: 0 8px 20px rgba(17, 147, 212, 0.4);
+    z-index: 10;
   }
   .skill-bubble img {
     max-width: 100%;
@@ -799,9 +802,11 @@
       margin-top: 20px;
     }
     .skill-bubble {
-      width: 42px;
-      height: 42px;
-      padding: 6px;
+      width: 32px !important;
+      height: 32px !important;
+      padding: 5px !important;
+      margin-right: -8px !important;
+      border-width: 1.5px !important;
     }
   }
 </style>
