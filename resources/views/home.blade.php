@@ -209,7 +209,7 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 mrb-md-30">
           <div class="title-box anim-heading animation-style1">
-            <h5 class="sub-title">( OUR SERVICES )</h5>
+            <h5 class="sub-title">( My SERVICES )</h5>
             <h2 class="title wt-split-text anim-title text-white">Where Code Meets Design</h2>
           </div>
         </div>
