@@ -683,7 +683,7 @@
       font-size: 16px !important;
     }
     .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
-      font-size: 11px !important;
+      font-size: 13px !important;
       line-height: 1.4 !important;
       margin-bottom: 0 !important;
       white-space: nowrap !important;
@@ -724,7 +724,7 @@
     .portivio-btn-block-2 .portivio-btn-2-primary,
     .portivio-btn-2-primary {
       padding: 10px 18px !important;
-      font-size: 11px !important;
+      font-size: 13px !important;
     }
     .portivio-btn-block-2 .portivio-btn-2-circle,
     .portivio-btn-2-circle {
