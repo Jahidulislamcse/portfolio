@@ -616,7 +616,7 @@
     .home_banner_01 .banner-item .banner-thumb {
       position: relative !important;
       margin-top: 40px !important;
-      margin-bottom: 45px !important;
+      margin-bottom: 60px !important;
       bottom: auto !important;
       right: auto !important;
       left: auto !important;
@@ -626,17 +626,29 @@
       margin-right: auto !important;
     }
     .home_banner_01 .banner-item .banner-thumb .story-box {
-      position: relative !important;
-      bottom: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 100% !important;
-      margin-top: 25px !important; /* Reduce top padding spacing */
-      padding: 16px 20px !important;
-      border-radius: 16px !important;
+      position: absolute !important;
+      bottom: -40px !important;
+      left: -15% !important;
+      right: -15% !important;
+      width: 130% !important;
+      padding: 10px 14px !important;
+      border-radius: 12px !important;
       background: #ffffff !important;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
       display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .story-box .quote-icon {
+      height: 40px !important;
+      width: 40px !important;
+      font-size: 16px !important;
+    }
+    .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
+      font-size: 11px !important;
+      line-height: 1.4 !important;
+      margin-bottom: 0 !important;
+      white-space: nowrap !important;
     }
     .home_banner_01 .banner-item .banner-thumb .h1-obj2 {
       position: absolute !important;
