@@ -645,7 +645,7 @@
       font-size: 16px !important;
     }
     .home_banner_01 .banner-item .banner-thumb .story-box .story-description .title {
-      font-size: 11px !important;
+      font-size: 12px !important;
       line-height: 1.4 !important;
       margin-bottom: 0 !important;
       white-space: nowrap !important;
