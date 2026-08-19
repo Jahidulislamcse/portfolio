@@ -240,10 +240,10 @@
 <!-- GitHub Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-60 pdt-60 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="section-title mrb-45 mrb-lg-50">
+<section class="pdb-40 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="section-title mrb-55 mrb-lg-60">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 mrb-md-30">
           <div class="title-box anim-heading animation-style1">
             <h5 class="sub-title">( My SERVICES )</h5>
@@ -252,9 +252,9 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-start justify-content-lg-end align-items-center">
           <div class="portivio-btn-block">
-            <a class="portivio-btn portivio-btn-circle" href="{{ route('services') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-            <a class="portivio-btn portivio-btn-primary" href="{{ route('services') }}">ALL SERVICES</a>
-            <a class="portivio-btn portivio-btn-circle" href="{{ route('services') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">GET IN TOUCH</a>
+            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
           </div>
         </div>
       </div>
@@ -262,27 +262,31 @@
   </div>
   <div class="section-content">
     <div class="container">
-      <div class="row g-4">
+      <div class="services_list_style1">
         @foreach ($services as $index => $service)
-          <div class="col-xl-4 col-lg-4 col-md-6 mb-3">
-            <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I want to discuss: ' . $service->heading) }}" target="_blank" class="minimal-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
-              <div>
-                <div class="minimal-card-top">
-                  <span class="minimal-card-num">0{{ $index + 1 }}.</span>
-                  <div class="minimal-card-arrow">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="minimal-card-title">{{ $service->heading }}</h3>
+          <div class="service_item wow fade_In_Up" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
+            <div class="service_head">
+              <span class="service_count">({{ sprintf('%02d', $index + 1) }})</span>
+              <h2 class="service_title text-white">{{ $service->heading }}</h2>
+            </div>
+            <div class="service_content">
+              <div class="service_content_left">
+                @if ($service->image)
+                  <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
+                @else
+                  <img src="{{ asset('images/service/h1-s1-img1.jpg') }}" alt="default service" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
+                @endif
               </div>
-              
-              <p class="minimal-card-desc">
-                {{ Str::limit(strip_tags($service->desc), 75) }}
-              </p>
-            </a>
+              <div class="service_content_right">
+                <h3 class="text-white">{{ $service->heading }}</h3>
+                <p class="text-white" style="opacity: 0.8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">{{ $service->desc }}</p>
+                <div class="portivio-btn-block">
+                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                  <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">Discuss Project</a>
+                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         @endforeach
       </div>
