@@ -240,10 +240,10 @@
 <!-- GitHub Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-40 pdt-40 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+<section class="pdb-80 pdt-80 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="section-title mrb-55 mrb-lg-60">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-xl-6 col-lg-6 col-md-12 mrb-md-30">
           <div class="title-box anim-heading animation-style1">
             <h5 class="sub-title">( My SERVICES )</h5>
@@ -252,9 +252,9 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-start justify-content-lg-end align-items-center">
           <div class="portivio-btn-block">
-            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-            <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">GET IN TOUCH</a>
-            <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-circle" href="{{ route('services') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+            <a class="portivio-btn portivio-btn-primary" href="{{ route('services') }}">ALL SERVICES</a>
+            <a class="portivio-btn portivio-btn-circle" href="{{ route('services') }}"><i class="webexbase-icon-up-right-arrow-1"></i></a>
           </div>
         </div>
       </div>
@@ -262,29 +262,30 @@
   </div>
   <div class="section-content">
     <div class="container">
-      <div class="services_list_style1">
+      <div class="row g-4">
         @foreach ($services as $index => $service)
-          <div class="service_item wow fade_In_Up" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
-            <div class="service_head">
-              <span class="service_count">({{ sprintf('%02d', $index + 1) }})</span>
-              <h2 class="service_title text-white">{{ $service->heading }}</h2>
-            </div>
-            <div class="service_content">
-              <div class="service_content_left">
-                @if ($service->image)
-                  <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
-                @else
-                  <img src="{{ asset('images/service/h1-s1-img1.jpg') }}" alt="default service" style="max-height: 250px; width: 100%; object-fit: cover; border-radius: 12px;" />
-                @endif
-              </div>
-              <div class="service_content_right">
-                <h3 class="text-white">{{ $service->heading }}</h3>
-                <p class="text-white" style="opacity: 0.8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">{{ $service->desc }}</p>
-                <div class="portivio-btn-block">
-                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
-                  <a class="portivio-btn portivio-btn-primary" href="https://wa.me/8801612152443" target="_blank">Discuss Project</a>
-                  <a class="portivio-btn portivio-btn-circle" href="https://wa.me/8801612152443" target="_blank"><i class="webexbase-icon-up-right-arrow-1"></i></a>
+          <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
+            <div class="modern-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
+              <div>
+                <div class="service-card-top">
+                  <span class="service-card-num">({{ sprintf('%02d', $index + 1) }})</span>
+                  <div class="service-card-icon-box">
+                    @if ($service->image)
+                      <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" />
+                    @else
+                      <i class="webexbase-icon-up-right-arrow-1 text-white" style="font-size: 1.5rem; color: #1193d4 !important;"></i>
+                    @endif
+                  </div>
                 </div>
+                <h3 class="service-card-title">{{ $service->heading }}</h3>
+                <p class="service-card-desc">{{ $service->desc }}</p>
+              </div>
+              
+              <div class="service-card-footer">
+                <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I would like to discuss: ' . $service->heading) }}" target="_blank" class="service-discuss-link">
+                  <span>Discuss Project</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
