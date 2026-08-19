@@ -265,31 +265,24 @@
       <div class="row g-4">
         @foreach ($services as $index => $service)
           <div class="col-xl-4 col-lg-4 col-md-6 mb-3">
-            <div class="smart-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
-              <div class="smart-card-top">
-                <div class="smart-icon-badge">
-                  @if ($service->image)
-                    <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" />
-                  @else
-                    <i class="webexbase-icon-up-right-arrow-1" style="font-size: 1.2rem; color: #1193d4;"></i>
-                  @endif
+            <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I want to discuss: ' . $service->heading) }}" target="_blank" class="minimal-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
+              <div>
+                <div class="minimal-card-top">
+                  <span class="minimal-card-num">0{{ $index + 1 }}.</span>
+                  <div class="minimal-card-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
                 </div>
-                <span class="smart-card-num">#{{ sprintf('%02d', $index + 1) }}</span>
+                <h3 class="minimal-card-title">{{ $service->heading }}</h3>
               </div>
               
-              <h3 class="smart-card-title">{{ $service->heading }}</h3>
-              
-              <p class="smart-card-desc" title="{{ $service->desc }}">
-                {{ Str::limit($service->desc, 80) }}
+              <p class="minimal-card-desc">
+                {{ Str::limit(strip_tags($service->desc), 75) }}
               </p>
-              
-              <div class="smart-card-footer">
-                <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I want to discuss: ' . $service->heading) }}" target="_blank" class="smart-card-action">
-                  <span>Discuss Project</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
+            </a>
           </div>
         @endforeach
       </div>
