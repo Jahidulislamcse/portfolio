@@ -240,8 +240,8 @@
 <!-- GitHub Section End -->
 
 <!-- Service Section Start -->
-<section class="pdb-80 pdt-80 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
-  <div class="section-title mrb-55 mrb-lg-60">
+<section class="pdb-60 pdt-60 bg-black pos-rel" style="border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="section-title mrb-45 mrb-lg-50">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-xl-6 col-lg-6 col-md-12 mrb-md-30">
@@ -264,25 +264,27 @@
     <div class="container">
       <div class="row g-4">
         @foreach ($services as $index => $service)
-          <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-            <div class="modern-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-card-num">({{ sprintf('%02d', $index + 1) }})</span>
-                  <div class="service-card-icon-box">
-                    @if ($service->image)
-                      <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" />
-                    @else
-                      <i class="webexbase-icon-up-right-arrow-1 text-white" style="font-size: 1.5rem; color: #1193d4 !important;"></i>
-                    @endif
-                  </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 mb-3">
+            <div class="smart-service-card wow fadeInUp" data-wow-delay="0.{{ ($index + 1) * 2 }}s">
+              <div class="smart-card-top">
+                <div class="smart-icon-badge">
+                  @if ($service->image)
+                    <img src="{{ asset('upload/' . $service->image) }}" alt="{{ $service->heading }}" />
+                  @else
+                    <i class="webexbase-icon-up-right-arrow-1" style="font-size: 1.2rem; color: #1193d4;"></i>
+                  @endif
                 </div>
-                <h3 class="service-card-title">{{ $service->heading }}</h3>
-                <p class="service-card-desc">{{ $service->desc }}</p>
+                <span class="smart-card-num">#{{ sprintf('%02d', $index + 1) }}</span>
               </div>
               
-              <div class="service-card-footer">
-                <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I would like to discuss: ' . $service->heading) }}" target="_blank" class="service-discuss-link">
+              <h3 class="smart-card-title">{{ $service->heading }}</h3>
+              
+              <p class="smart-card-desc" title="{{ $service->desc }}">
+                {{ Str::limit($service->desc, 80) }}
+              </p>
+              
+              <div class="smart-card-footer">
+                <a href="https://wa.me/8801612152443?text={{ urlencode('Hi Jahidul, I want to discuss: ' . $service->heading) }}" target="_blank" class="smart-card-action">
                   <span>Discuss Project</span>
                   <i class="fas fa-arrow-right"></i>
                 </a>
