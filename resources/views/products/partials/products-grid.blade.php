@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, filter 0.5s ease;
     color: #ffffff;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -375,24 +375,28 @@
                     // Card has slid UP off the screen
                     card.style.transform = 'translateY(-115%) scale(0.94)';
                     card.style.opacity = '0';
+                    card.style.filter = 'blur(8px)';
                     card.style.pointerEvents = 'none';
                     card.style.zIndex = total - i;
                     card.classList.remove('active');
                 } else if (diff === 0) {
-                    // Current Active Front Card
+                    // Current Active Front Card (Sharp & Focused)
                     card.style.transform = 'translateY(0) scale(1)';
                     card.style.opacity = '1';
+                    card.style.filter = 'none';
                     card.style.pointerEvents = 'auto';
                     card.style.zIndex = total + 10;
                     card.classList.add('active');
                 } else {
-                    // Peeking Cards Below
+                    // Peeking Cards Below (Slightly blurred focus)
                     const offsetY = Math.min(diff * 35, 105);
                     const scale = Math.max(1 - diff * 0.04, 0.85);
                     const opacity = diff > 4 ? 0 : 1;
+                    const blurPx = Math.min(diff * 2.5, 6);
                     
                     card.style.transform = `translateY(${offsetY}px) scale(${scale})`;
                     card.style.opacity = opacity.toString();
+                    card.style.filter = `blur(${blurPx}px)`;
                     card.style.pointerEvents = 'auto';
                     card.style.zIndex = total - i;
                     card.classList.remove('active');
