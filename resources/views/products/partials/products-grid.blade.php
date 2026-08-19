@@ -2,17 +2,19 @@
 .stacked-slider-section {
     position: relative;
     width: 100%;
-    max-width: 900px;
+    max-width: 840px;
     margin: 0 auto;
-    padding: 20px 0 40px;
+    padding: 10px 0 30px;
 }
 
 .stacked-slider-viewport {
     position: relative;
     width: 100%;
-    height: 660px;
+    height: 520px;
     perspective: 1000px;
-    touch-action: pan-y;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .stacked-slide-card {
@@ -20,13 +22,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 560px;
-    border-radius: 32px;
-    padding: 36px 36px 28px;
+    height: 440px;
+    border-radius: 28px;
+    padding: 28px 30px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
     color: #ffffff;
     cursor: pointer;
@@ -36,56 +38,56 @@
 }
 
 .stacked-slide-card.active {
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
 }
 
 .stacked-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-family: 'Poppins', monospace, sans-serif;
 }
 
 .stacked-card-counter {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     opacity: 0.85;
 }
 
 .stacked-card-category {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     opacity: 0.85;
     text-transform: uppercase;
 }
 
 .stacked-card-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.05;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     word-break: break-word;
 }
 
 .stacked-card-desc {
-    font-size: 1rem;
-    line-height: 1.45;
+    font-size: 0.92rem;
+    line-height: 1.4;
     opacity: 0.92;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     color: rgba(255, 255, 255, 0.95);
 }
 
 .stacked-card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 6px;
+    margin-bottom: 14px;
 }
 
 .stacked-tag-badge {
@@ -93,35 +95,36 @@
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
-    padding: 5px 16px;
+    padding: 4px 14px;
     border-radius: 30px;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .stacked-card-image-box {
     position: relative;
     background: #ffffff;
-    border-radius: 24px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 14px;
     overflow: hidden;
     flex: 1;
-    min-height: 220px;
+    min-height: 170px;
+    max-height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .stacked-card-image-box img {
     max-width: 100%;
-    max-height: 310px;
+    max-height: 210px;
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 10px;
     transition: transform 0.4s ease;
 }
 
@@ -131,21 +134,21 @@
 
 .stacked-card-overlay {
     position: absolute;
-    bottom: 14px;
-    right: 14px;
+    bottom: 12px;
+    right: 12px;
     z-index: 5;
 }
 
 .stacked-view-btn {
     background: #000000;
     color: #ffffff;
-    padding: 9px 20px;
+    padding: 8px 18px;
     border-radius: 30px;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -160,18 +163,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin-top: 25px;
+    gap: 16px;
+    margin-top: 20px;
 }
 
 .stack-ctrl-btn {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,7 +196,7 @@
 
 .stack-pagination-counter {
     font-family: 'Poppins', monospace, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 2px;
@@ -201,25 +204,28 @@
 
 @media (max-width: 768px) {
     .stacked-slider-viewport {
-        height: 540px;
+        height: 430px;
     }
     .stacked-slide-card {
-        height: 460px;
-        padding: 24px 20px 20px;
-        border-radius: 24px;
+        height: 360px;
+        padding: 20px 16px 16px;
+        border-radius: 20px;
     }
     .stacked-card-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-bottom: 6px;
     }
     .stacked-card-desc {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
+        margin-bottom: 8px;
     }
     .stacked-card-image-box {
-        padding: 14px;
-        min-height: 180px;
+        padding: 10px;
+        min-height: 140px;
+        max-height: 180px;
     }
     .stacked-card-image-box img {
-        max-height: 230px;
+        max-height: 160px;
     }
 }
 </style>
@@ -441,7 +447,7 @@
             });
         }
 
-        // Touch Swipe Handling (Up / Down)
+        // Touch Swipe Handling & Page Scroll Prevention
         let startY = 0;
         let startX = 0;
         let isSwiping = false;
@@ -452,6 +458,23 @@
             isSwiping = true;
         }, { passive: true });
 
+        viewport.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const currentY = e.touches[0].clientY;
+            const currentX = e.touches[0].clientX;
+            const deltaY = currentY - startY;
+            const deltaX = currentX - startX;
+
+            // Lock page scrolling while sliding between cards
+            if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                if ((deltaY < 0 && activeIndex < total - 1) || (deltaY > 0 && activeIndex > 0)) {
+                    if (e.cancelable) {
+                        e.preventDefault();
+                    }
+                }
+            }
+        }, { passive: false });
+
         viewport.addEventListener('touchend', (e) => {
             if (!isSwiping) return;
             isSwiping = false;
@@ -460,7 +483,7 @@
             const deltaY = endY - startY;
             const deltaX = endX - startX;
 
-            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 35) {
+            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 30) {
                 if (deltaY < 0 && activeIndex < total - 1) {
                     // Swipe UP -> Next card
                     activeIndex++;
@@ -473,20 +496,21 @@
             }
         }, { passive: true });
 
-        // Wheel Scroll Handling inside Viewport
+        // Wheel Scroll Handling - Locks page scroll while navigating stack
         let lastWheelTime = 0;
         viewport.addEventListener('wheel', (e) => {
-            const now = Date.now();
-            if (now - lastWheelTime < 400) return;
+            if ((e.deltaY > 0 && activeIndex < total - 1) || (e.deltaY < 0 && activeIndex > 0)) {
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
+                const now = Date.now();
+                if (now - lastWheelTime < 350) return;
 
-            if (e.deltaY > 25 && activeIndex < total - 1) {
-                e.preventDefault();
-                activeIndex++;
-                updateStack();
-                lastWheelTime = now;
-            } else if (e.deltaY < -25 && activeIndex > 0) {
-                e.preventDefault();
-                activeIndex--;
+                if (e.deltaY > 0) {
+                    activeIndex++;
+                } else {
+                    activeIndex--;
+                }
                 updateStack();
                 lastWheelTime = now;
             }
