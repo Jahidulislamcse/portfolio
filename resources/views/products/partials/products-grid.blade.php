@@ -81,6 +81,13 @@
     opacity: 0.92;
     margin-bottom: 12px;
     color: rgba(255, 255, 255, 0.95);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .stacked-card-tags {
@@ -88,6 +95,8 @@
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 14px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .stacked-tag-badge {
@@ -101,6 +110,10 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .stacked-card-image-box {
@@ -265,8 +278,16 @@
                     $color = $bgColors[$index % count($bgColors)];
                     $counter = sprintf('%02d / %02d', $index + 1, $totalProjects);
                     
-                    // Extract description & tech tags
-                    $descText = !empty($product->description) ? trim(strip_tags($product->description)) : '';
+                    // Clean & extract description & tech tags
+                    $descText = '';
+                    if (!empty($product->description)) {
+                        $rawDesc = html_entity_decode(strip_tags($product->description), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                        $rawDesc = str_replace(["\xC2\xA0", '&nbsp;'], ' ', $rawDesc);
+                        // Remove raw URLs so long URL strings don't break card layout
+                        $cleanDesc = preg_replace('/https?:\/\/[^\s]+/', '', $rawDesc);
+                        $cleanDesc = trim(preg_replace('/\s+/', ' ', $cleanDesc));
+                        $descText = !empty($cleanDesc) ? $cleanDesc : trim(preg_replace('/\s+/', ' ', $rawDesc));
+                    }
                     $tags = [];
                     if (!empty($descText)) {
                         if (str_contains($descText, ',')) {
